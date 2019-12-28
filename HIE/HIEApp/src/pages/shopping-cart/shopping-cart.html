@@ -1,0 +1,317 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button (click)="goBack()">
+        <ion-icon name="back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>My cart</ion-title>
+    <!--<ion-buttons end>
+      <button>
+        <ion-icon (click)="onStripePayment()" name="card"></ion-icon>
+    </button>
+    </ion-buttons>-->
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="bLoaded">
+    <!--<ion-item-divider></ion-item-divider>-->
+    <div class="ksd-date-time">
+      <ion-row>
+        <ion-col col-6 align-center>
+          <button ion-button clear class="ksd-collection">
+            <ion-icon name="hie-calendar"></ion-icon>
+            <ion-datetime pull-left placeholder='Collection date' displayFormat="DD-MMM-YYYY" readonly="true" [(ngModel)]="collectionDate"></ion-datetime>
+          </button>
+          <!--<ion-item-divider></ion-item-divider>-->
+        </ion-col>
+        <ion-col col-6 align-center>
+          <button ion-button clear class="ksd-collection">
+            <ion-icon name="hie-time"></ion-icon>
+            <ion-multi-picker disabled text-left class="ksd-timepicker" item-content [multiPickerColumns]="simpleColumns" [(ngModel)]="collectionTime"></ion-multi-picker>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-item-divider></ion-item-divider>
+      <ion-row class="ksd-row">
+        <ion-col col-1>
+          <ion-icon name="back"></ion-icon>
+        </ion-col>
+        <ion-col col-11>
+          <div class="ksd-merchant">
+            {{oMerchant.NAME}}
+          </div>
+          <div class="ksd-address">{{oMerchant.ADDRESS}}
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <!--<div>
+      <button ion-button clear class="ksd-collection">
+          <ion-icon name="hie-calendar"></ion-icon>
+          <ion-datetime pull-left placeholder='Collection date' displayFormat="DD-MM-YYYY" [(ngModel)]="collectionDate"></ion-datetime>
+        </button>
+      <ion-item-divider class="no-padding"></ion-item-divider>
+    </div>
+    <div class="no-padding">
+      <button ion-button clear class="ksd-collection">
+        <ion-icon name="hie-time"></ion-icon>
+        <ion-multi-picker text-left class="ksd-timepicker" item-content [multiPickerColumns]="simpleColumns" [(ngModel)]="collectionTime"></ion-multi-picker>
+      </button>
+    </div>-->
+    <!--</ion-item>-->
+
+    <!--<ion-row>
+    <ion-col>
+      <ion-datetime placeholder='Collection date' displayFormat="DD-MM-YYYY" [(ngModel)]="collectionDate"></ion-datetime>
+      <ion-multi-picker class="ksd-timepicker" item-content [multiPickerColumns]="simpleColumns" [(ngModel)]="collectionTime"></ion-multi-picker>
+    </ion-col>
+  </ion-row>-->
+    <ion-list *ngIf="oService.getCart().length">
+      <div no-padding *ngFor="let o of oService.getCart(); let i = index;">
+        <ion-item no-lines no-padding>
+          <ion-row class="ksd-row-1">
+            <ion-col col-3 class="ksd-image-width">
+              <!--class="ksd-image-width" no-padding>-->
+              <img class="ksd-image" [src]="oAPIService.buildImageURL(o.oProduct, oMID)" />
+            </ion-col>
+            <ion-col col-6 no-padding>
+              <!--width-50>-->
+              <p class="ksd-padding" text-wrap>{{o.oProduct.TITLE}}</p>
+              <!-- <ion-segment class="ksd-segment">
+                <ion-row>
+                  <ion-col width-5>
+                    <ion-icon *ngIf="o.qty > 1" name="ios-remove-outline" (click)="oService.adjustItemQty(o,-1)"></ion-icon>
+                  </ion-col>
+                  <ion-col width-80>
+                    {{o.qty}}
+                  </ion-col>
+                  <ion-col width-5>
+                    <ion-icon name="ios-add-outline" (click)="oService.adjustItemQty(o,1)"></ion-icon>
+                  </ion-col>
+                </ion-row>
+              </ion-segment> -->
+              <div class="ion-segment">
+                <ion-row>
+                  <ion-col no-padding col-4>
+                    <div class="ksd-minus" *ngIf="o.qty > 1" (click)="oService.adjustItemQty(o,-1)">-</div>
+                  </ion-col>
+                  <ion-col col-4>
+                    <div class="ksd-qty">{{o.qty}}</div>
+                  </ion-col>
+                  <ion-col no-padding col-4>
+                    <div class="ksd-plus-minus" (click)="oService.adjustItemQty(o,1)">+</div>
+                  </ion-col>
+                </ion-row>
+              </div>
+
+
+            </ion-col>
+            <ion-col col-3 align-right>
+              <p align-right text-right class="ksd-price">$ {{o.oProduct.PRICE |number:'1.2'}}</p>
+              <p align-right text-right class="ksd-usual-price">$ {{o.oProduct.USUAL_PRICE |number:'1.2'}}
+              </p>
+              <!--<ion-row no-padding>
+                <ion-col text-right no-padding align-right class="ksd-price">$ {{o.oProduct.PRICE |number:'1.2'}}</ion-col>
+              </ion-row>
+              <ion-row no-padding>
+                <ion-col no-padding class="ksd-usual-price" text-right>$ {{o.oProduct.USUAL_PRICE |number:'1.2'}}
+                </ion-col>
+              </ion-row>-->
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        <!--<ion-item-options>
+          <button (click)="oService.removeFromCart(o)" color="danger" ion-button icon-left>
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+        </ion-item-options>-->
+      </div>
+      <!--</ion-list>-->
+      <ion-row no-padding>
+        <ion-col>
+          <hr/>
+        </ion-col>
+      </ion-row>
+      <!--<ion-list>-->
+      <ion-row no-padding>
+        <ion-col no-padding col-9 align-left>
+          <p class="ksd-total-text">Total:</p>
+        </ion-col>
+        <!--<ion-col width-25 align-right text-right>
+        <b>$ {{oService.calcTotalSum()}}</b>
+      </ion-col>-->
+        <ion-col col-3 align-right>
+          <p class="ksd-total" text-right>$ {{oService.calcTotalSum() |number:'1.2'}}</p>
+          <p text-right class="ksd-saved">saved $ {{oService.getTotalSaved() |number:'1.2'}}</p>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row no-padding>
+        <ion-col no-padding col-9>
+        </ion-col>
+        <ion-col col-3 no-padding-top align-right>
+          <p text-right class="ksd-saved">saved $ {{oService.getTotalSaved() |number:'1.2'}}</p>
+        </ion-col>
+      </ion-row> -->
+      <!-- <ion-item-divider></ion-item-divider> -->
+    </ion-list>
+    <ion-row>
+      <ion-col>
+        <hr/>
+      </ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col no-padding>
+        <p class="ksd-payment-information">PAYMENT INFORMATION</p>
+        <div class="ksd-err">
+          <div *ngIf="oForm.hasError('CARD')" class="alert alert-danger">
+            {{oForm.getError('CARD')}}
+          </div>
+          <div *ngIf="oForm.hasError('EXPIRY')" class="alert alert-danger">
+            {{oForm.getError('EXPIRY')}}
+          </div>
+          <div *ngIf="oForm.hasError('CCV')" class="alert alert-danger">
+            {{oForm.getError('CCV')}}
+          </div>
+          <div *ngIf="oForm.hasError('NAME')" class="alert alert-danger">
+            {{oForm.getError('NAME')}}
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <hr no-padding/>
+    <!--card container=".card-container" card-width="200"
+    formatting="true" debug="false" messages="{validDate: 'valid\ndate', monthYear: 'mm/yy'}" placeholders="{CARD: '•••• •••• •••• ••••', name: 'Full Name', 
+    expiry: '••/••••', 
+    cvc: '••'}" masks=""-->
+    <form #f ngForm [formGroup]="oInputForm" (ngSubmit)="onSave(oInputForm.value)">
+      <div no-padding>
+        <!-- <div no-padding style="display:none" class="card-container"></div> -->
+        <!-- <form card
+        container=".card-container"
+        card-width="200"
+        formatting="true"
+        debug="true"
+        messages="{validDate: 'valid\ndate', monthYear: 'mm/yyyy'}"
+        placeholders="{number: '•••• •••• •••• ••••', name: 'Full Name', expiry: '••/••', cvc: '•••'}"
+        masks="">
+        <input type="text" name="number" card-number/>
+        <input type="text" name="first-name" card-name/>
+        <input type="text" name="last-name" card-name/>
+        <input type="text" name="expiry" card-expiry/>
+        <input type="text" name="cvc" card-cvc/>
+      </form>
+   -->
+        <!-- <ion-input id="cc" type="tel" name="ccnumber" placeholder="XXXX XXXX XXXX XXXX" pattern="\d{4} \d{4} \d{4} \d{4}" class="masked" title="Enter the 16 number credit card" formControlName="CARD_NUMBER">
+      </ion-input> [textMask]="{mask: masks.cardNumber}"-->
+
+        <!-- <ion-row no-padding>
+          <ion-col no-padding> -->
+        <ion-row>
+          <ion-col>
+            <ion-label stacked>Card No.</ion-label>
+            <input type="text" class="ksd-card" formControlName="CARD" name="CARD" autocomplete="off" card-number [textMask]="{mask: maskCard}">
+          </ion-col>
+        </ion-row>
+        <!-- </ion-col>
+        </ion-row> -->
+        <ion-row>
+          <!-- <ion-col>
+            <input formControlName="EXPIRY_MM" type="tel" name="EXPIRY_MM" card-expiry>
+          </ion-col> -->
+          <ion-col col-6>
+            <ion-label stacked>Expiry Date</ion-label>
+            <input formControlName="EXPIRY" class="ksd-card" type="tel" name="EXPIRY" autocomplete="off" [textMask]="{mask: maskExpiry}">
+          </ion-col>
+          <!-- </ion-row>
+        <ion-row> -->
+          <ion-col col-6>
+            <ion-label>CCV/CVC</ion-label>
+            <input formControlName="CCV" type="tel" name="CCV" maxlength="3" class="ksd-card" autocomplete="off">
+          </ion-col>
+          <!-- <ion-col col-6>
+            <img src="assets/img/visa_64.png">
+            <img src="assets/img/cc-mastercard.png">
+          </ion-col> -->
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>Name</ion-label>
+            <input formControlName="NAME" autocomplete="off" type="text" class="ksd-card" name="NAME">
+          </ion-col>
+        </ion-row>
+      </div>
+      <!-- <div>
+        {{oInputForm.value.CARD_NUMBER}}<br/> {{oInputForm.value.EXPIRY_MM}}
+        <br/> {{oInputForm.value.EXPIRY_YYYY}}
+        <br/>
+      </div> -->
+      <!-- <ion-input required class="ksd-card-number" text-center formControlName="CARD_NUMBER" [(ngModel)]="cc" type="tel" card-number></ion-input> -->
+
+      <!-- <ion-row>
+          <ion-col col-1></ion-col>
+          <ion-col col-2>
+            <ion-input auto-jump="1" max="4" class="ksd-card-number" formControlName="CCA"></ion-input>
+          </ion-col>
+          <ion-col col-2>
+            <ion-input auto-jump="2" max="4" class="ksd-card-number" formControlName="CCB"></ion-input>
+          </ion-col>
+          <ion-col col-2>
+            <ion-input auto-jump="3" max="4" class="ksd-card-number" formControlName="CCC"></ion-input>
+          </ion-col>
+          <ion-col col-2>
+            <ion-input auto-jump="4" max-length="4" class="ksd-card-number" formControlName="CCD"></ion-input>
+          </ion-col>
+          <ion-col col-1></ion-col>
+        </ion-row>
+ -->
+      <!-- <ion-label stacked>Expiry Date</ion-label>
+        <ion-row no-padding>
+          <ion-col col-4 no-padding>
+            <ion-input auto-jump="5" max="2" text-center formControlName="EXPIRY_MM" type="number"></ion-input>
+          </ion-col>
+          <ion-col col-8 no-padding>
+            <ion-input auto-jump="6" max="4" text-center placeholder="yyyy" formControlName="EXPIRY_YYYY" type="number"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-label>CCV/CVC</ion-label>
+        <ion-row no-padding>
+          <ion-col>
+            <ion-input auto-jump="7" max="3" text-center formControlName="CCV" type="number"></ion-input>
+          </ion-col>
+          <ion-col col-6>
+            <img src="http://www.uk2sitebuilder.com/files/writeable/uploads/uk2group4215/image/visa-mc.jpg">
+          </ion-col>
+        </ion-row>
+        <ion-label>Name</ion-label>
+        <ion-input auto-jump="8" formControlName="NAME" type="text"></ion-input>
+      </div> -->
+    </form>
+    <ion-list>
+      <p *ngIf="!oService.getCart().length" padding text-center>
+        Empty Shopping Cart
+      </p>
+    </ion-list>
+  </div>
+  <ion-item></ion-item>
+  <!-- <p>{{oForm.getErrors() | json}}</p> -->
+</ion-content>
+
+<ion-footer>
+  <button primary ion-button full type="submit" [disabled]="!oInputForm.valid" (click)="onPay(oInputForm.value)">
+    <p class="ksd-anchor-button">Place my order</p>
+  </button>
+  <!--     
+  <ion-row class="footer-row" [disabled]="!oForm.isValid() || !oInputForm.valid" ion-button (click)="onPay(oInputForm.value)">
+    <ion-col class="footer-col-left">
+      {oService.calcTotalQty()}}
+    </ion-col>
+    <ion-col class="footer-col-center">Place my order
+    </ion-col>
+    <ion-col class="footer-col-right">
+      {{oService.calcTotalSum() |number:'1.2'}}
+    </ion-col>
+  </ion-row> -->
+</ion-footer>

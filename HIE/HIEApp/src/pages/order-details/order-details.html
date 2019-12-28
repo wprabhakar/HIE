@@ -1,0 +1,69 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="back"></ion-icon>
+    </button>
+    <ion-title>Order detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="bLoaded">
+    <div class="ksd-spacer-36">
+    </div>
+    <ion-item no-lines no-padding>
+      <ion-row>
+        <ion-col no-padding col-5>
+          <div class="ksd-name">{{o.CUSTOMER_NAME}}</div>
+        </ion-col>
+        <ion-col no-padding col-7>
+          <div class="ksd-order-number">Order No. {{o.BOOKINGREF}}</div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col no-padding col-5>
+          <div class="ksd-date">{{o.PICKUPON | date: 'dd MMM yyyy'}}</div>
+        </ion-col>
+        <ion-col no-padding col-7>
+          <div class="ksd-time">{{o.PICKUPTIME}}
+            <!--{{o.PICKUPSTART}} - {{o.PICKUPEND}}-->
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item-divider no-padding></ion-item-divider>
+    <div class="ksd-spacer-26">
+    </div>
+    <ion-row no-padding *ngFor="let oD of o._D;">
+      <ion-col col-8 no-padding>
+        <div class="ksd-details">
+          {{oD.QUANTITY}} x {{oD.TITLE}}</div>
+      </ion-col>
+      <ion-col col-4 text-right no-padding>
+        <div class="ksd-details">
+          $ {{oD.DISCOUNTEDPRICE}}</div>
+      </ion-col>
+    </ion-row>
+    <div class="ksd-spacer-26"></div>
+    <ion-item-divider no-padding></ion-item-divider>
+    <ion-row class="ksd-total">
+      <ion-col col-8 no-padding>
+        <div class="ksd-details">Total:</div>
+      </ion-col>
+      <ion-col col-4 text-right no-padding>
+        <div class="ksd-details">${{o.AMOUNTPAID}}</div>
+      </ion-col>
+    </ion-row>
+    <ion-item-divider no-padding></ion-item-divider>
+    <div class="ksd-spacer-65">
+    </div>
+    <ion-label class="ksd-comment">COMMENT</ion-label>
+    <textarea no-padding class="ksd-comment-text" [(ngModel)]="o.COMMENT" name="comment"></textarea>
+  </div>
+</ion-content>
+<ion-footer>
+  <button primary ion-button full (click)="changeOrderStatus()"><p class="ksd-anchor-button">Confirm order</p></button>
+</ion-footer>

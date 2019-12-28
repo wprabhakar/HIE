@@ -1,0 +1,55 @@
+page-review {
+  .background-image {
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+//    height: 50%;
+    background-blend-mode: multiply;
+    height: 128px ;
+    width: 100% ;
+}
+    .ksd-spacer-1 {
+      padding: 44px ;
+    }
+    .ksd-spacer-2 {
+      padding: 20px ;
+    }
+    .ksd-spacer-3 {
+      padding-top: 32px ;
+    }
+    ion-item {
+      padding-bottom: 20px ;
+      margin-bottom:20px ;
+      // margin: 0px ;
+      // min-height: 1.0rem ;
+      // max-height: 1.0rem ;
+    }
+    .ksd-who {
+      font-family: "latolight" ;
+      padding: 0px ;
+      margin: 0px ;
+      font-size: 14px ;
+      color: #7C7E81 ;
+    //  vertical-align: bottom ;
+    //  padding-top: 32px ;
+    }
+    .ksd-review {
+      font-family: "latoregular" ;
+      padding: 0px ;
+      margin: 0px; 
+      font-size: 17px ;
+    //  font-family: "Lato Bold" ;
+    //  font-weight: 700 ;
+      color: black ;
+    //  vertical-align: top ;
+    //  padding-bottom: 32px ;
+    }
+    
+    div.input-wrapper {
+    //  max-height: 1.0rem ;
+      vertical-align: top ;
+      margin: 0px ;
+      padding: 0px ;
+    }
+    }
+    

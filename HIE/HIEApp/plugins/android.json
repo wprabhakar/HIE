@@ -1,0 +1,71 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-background-mode": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-calendar": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-facebook4": {
+      "APP_ID": "1702614956729294",
+      "APP_NAME": "HaveItEarly",
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-filepath": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova.plugins.diagnostic": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    },
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "com.krisprojects.haveitearly"
+    }
+  },
+  "dependent_plugins": {}
+}

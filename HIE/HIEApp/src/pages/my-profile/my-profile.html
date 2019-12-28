@@ -1,0 +1,83 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="hie-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>My profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="bLoaded">
+    <div class="ksd-spacer-top"></div>
+    <form [formGroup]="oInputForm" (ngSubmit)="onSave(oInputForm.value)">
+      <ion-row no-padding>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Name</ion-label>
+            <ion-input formControlName="NAME" type="text"></ion-input>
+          </ion-item>
+
+          <div class="ksd-field-spacer"></div>
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input formControlName="EMAIL"  type="text"></ion-input>
+          </ion-item>
+
+          <div class="ksd-field-spacer"></div>
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input read-only disabled formControlName="PASSWORD" type="password"></ion-input>
+            <p class="ksd-change" item-right (click)="onChangePassword()">Change</p>
+          </ion-item>
+
+          <div class="ksd-field-spacer"></div>
+          <ion-item>
+            <ion-label floating>Mobile</ion-label>
+            <ion-input formControlName="MOBILE" type="text"></ion-input>
+          </ion-item>
+
+          <div class="ksd-field-spacer"></div>
+          <ion-item>
+            <ion-label floating>Address</ion-label>
+            <ion-textarea class="ksd-address" formControlName="ADDRESS"></ion-textarea>
+          </ion-item>
+
+          <div class="ksd-field-spacer"></div>
+        </ion-col>
+
+      </ion-row>
+      <div *ngIf="oForm.hasError('NAME')" class="alert alert-danger">
+        {{oForm.getError('NAME')}}
+      </div>
+      <div *ngIf="oForm.hasError('EMAIL')" class="alert alert-danger">
+        {{oForm.getError('EMAIL')}}
+      </div>
+      <div *ngIf="oForm.hasError('MOBILE')" class="alert alert-danger">
+        {{oForm.getError('MOBILE')}}
+      </div>
+      <div *ngIf="oForm.hasError('PASSWORD')" class="alert alert-danger">
+        {{oForm.getError('PASSWORD')}}
+      </div>
+      <!-- <div *ngIf="oForm.hasError('ADDRESS')" class="alert alert-danger">
+        {{oForm.getError('ADDRESS')}}
+      </div> -->
+  
+      <ion-row>
+        <ion-col>
+          <button ion-button full type="submit" *ngIf="!bSignUp">Save</button>
+        </ion-col>
+      </ion-row>
+      <p class="ksd-spacer"></p>
+      <!-- <ion-row>
+        <ion-col (click)="onExitApp()">
+          <button ion-button clear full *ngIf="!bSignUp" class="ksd-white-button">Logout</button>
+        </ion-col>
+      </ion-row> -->
+    </form>
+  </div>
+</ion-content>

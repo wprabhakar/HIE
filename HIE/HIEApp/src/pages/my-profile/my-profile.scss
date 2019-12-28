@@ -1,0 +1,65 @@
+page-my-profile {
+    // .ksd-address {
+    //     background-color: white;
+    // }
+  .ksd-address {
+//    background-color: #F7F7F7 ;
+    font-size: 15px ;
+    min-height: 100px ;
+    max-height: 100px ;
+    width: 100% ;
+    margin:0px ;
+    padding:0px ;
+    border: 1px 1px 1px 1px ;
+    border-color: #F7F7F7 ;
+    border-top: 2px ;
+  
+  }
+
+    .ksd-field-spacer {
+        padding-top: 30px;
+    }
+
+    .ksd-spacer-top {
+        padding-top: 20px;
+    }
+
+    .ksd-spacer {
+        padding-top: 10px;
+    }
+
+    .ksd-change {
+        font-family: "latolight";
+        font-size: 14px;
+        color: #00D4AA;
+        padding: 0px;
+        margin: 0px;
+
+        //   border-style: solid;
+        //  padding-top: 15px ;
+        //  padding-bottom: 15px ;
+        background-color: white;
+    }
+
+    .ksd-white-button {
+        width: 96%;
+        left: 2%;
+
+        //  padding: 10px ;
+        border: 2px solid #3990D9;
+
+        //background: transparent;
+
+        //  color: white ;
+        background-color: white;
+    }
+
+    button.ksd-white-button.disable-hover.button.button-ios.button-clear.button-clear-ios.button-full.button-full-ios {
+        color: black;
+        background-color: white;
+
+        // padding: 0px ;
+        // margin: 0px ;
+   
+    }
+}

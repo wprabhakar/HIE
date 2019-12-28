@@ -1,0 +1,146 @@
+page-orders {
+    .scroll-content {
+        overflow-y: auto !important;
+    }
+
+    .item-md.item-block .item-inner {
+        padding: 0px;
+        background-color: white;
+    }
+
+    ion-content {
+        background-color: white;
+    }
+
+    .ksd-options {
+        background-color: white;
+    }
+
+    .ksd-card {
+        background-color: #F0F1F3;
+    }
+
+    .ksd-bottom-space {
+        padding: 0px;
+        padding-bottom: 10px;
+    }
+
+    .ksd-spacer {
+        padding: 15px;
+
+        //  background-color: #F7F7F7 ;
+   
+    }
+
+    .ksd-details {
+        font-family: "latolight";
+        font-size: 14px;
+
+        //    background-color: #F7F7F7 ;
+        color: #050505;
+        padding: 0px;
+        margin-top: 5px;
+        padding-top: 10px;
+    }
+
+    .ksd-price {
+        font-family: "latoregular";
+        font-size: 17px;
+
+        //  background-color: #F7F7F7 ;
+        color: #050505;
+        padding: 0px;
+        margin-top: 5px;
+        padding-top: 10px;
+    }
+
+    .ksd-menu-options {
+        font-family: "latolight";
+        font-size: 17px;
+        color: black;
+        padding: 0px;
+        margin: 0px;
+
+        //  padding-top: 15px ;
+        padding-bottom: 15px;
+        background-color: white;
+    }
+
+    .ksd-menu-options-selected {
+        font-family: "latolight";
+        font-size: 17px;
+        color: #00D4AA;
+        padding: 0px;
+        margin: 0px;
+
+        //  padding-top: 15px ;
+        padding-bottom: 15px;
+        background-color: white;
+    }
+
+    .ksd-date {
+        font-family: "latolight";
+        font-size: 14px;
+        margin: 0px;
+        padding-top: 14px;
+        padding-left: 10px;
+    }
+
+    .ksd-time {
+        font-family: "latoregular";
+        font-size: 11px;
+        color: black;
+        padding: 0px;
+        margin: 0px;
+        padding-top: 16px;
+    }
+
+    .ksd-image {
+        padding: 0px;
+        margin: 0px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .ksd-order {
+        font-family: "latoregular";
+        font-size: 12px;
+        color: black;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+
+        //  background-color: #FF8A41;
+   
+    }
+
+    .ksd-order-status {
+        // font-family: "latoregular" ;
+        font-size: 11px;
+        color: #FF8A41;
+    }
+
+    .ksd-outlet {
+        // font-family: "latolight" ;
+        font-size: 11px;
+    }
+
+    .ksd-image-width {
+        max-width: 100px;
+    }
+
+    .ksd-amount {
+        //    font-family: "latoregular" ;
+        font-size: 17px;
+        color: black;
+    }
+
+    .ksd-round-button.disable-hover.button.button-md.button-default.button-default-md.button-round.button-round-md {
+        min-height: 28px;
+        max-height: 28px;
+        background-color: $ksd-footer-button-color;
+    }
+}

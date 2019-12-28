@@ -1,0 +1,305 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+$font-path: "../assets/fonts";
+
+@import "ionic.globals";
+
+// $colors: (primary: #F0F1F3, secondary: #32db64, danger: #f53d3d, light: #f4f4f4, dark: #222);
+
+$colors: (primary: #00DDAA, secondary: #32db64, danger: #f53d3d, light: #f4f4f4, dark: #222);
+
+
+@import "ionic.theme.default";
+
+@import "ionic.ionicons";
+
+
+@font-face {
+    font-family: 'latoregular';
+    src: url("../assets/fonts/lato-regular-webfont.woff2") format("woff2"), url("../assets/fonts/lato-regular-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoblack';
+    src: url("../assets/fonts/lato-black-webfont.woff2") format("woff2"), url("../assets/fonts/lato-black-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoblack_italic';
+    src: url("../assets/fonts/lato-blackitalic-webfont.woff2") format("woff2"), url("../assets/fonts/lato-blackitalic-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latobold';
+    src: url("../assets/fonts/lato-bold-webfont.woff2") format("woff2"), url("../assets/fonts/lato-bold-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latobold_italic';
+    src: url("../assets/fonts/lato-bolditalic-webfont.woff2") format("woff2"), url("../assets/fonts/lato-bolditalic-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latohairline';
+    src: url("../assets/fonts/lato-hairline-webfont.woff2") format("woff2"), url("../assets/fonts/lato-hairline-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latohairline_italic';
+    src: url("../assets/fonts/lato-hairlineitalic-webfont.woff2") format("woff2"), url("../assets/fonts/lato-hairlineitalic-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoitalic';
+    src: url("../assets/fonts/lato-italic-webfont.woff2") format("woff2"), url("../assets/fonts/lato-italic-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latolight';
+    src: url("../assets/fonts/lato-light-webfont.woff2") format("woff2"), url("../assets/fonts/lato-light-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latolight_italic';
+    src: url("../assets/fonts/lato-lightitalic-webfont.woff2") format("woff2"), url("../assets/fonts/lato-lightitalic-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-family: "latoregular";
+
+$font-family-base: "latoregular";
+$font-family-md-base: "latoregular";
+$font-family-ios-base: "latoregular";
+$font-family-wp-base: "latoregular";
+
+$ksd-toggle-size: 28px;
+
+/*
+$toggle-ios-handle-background-color-on: blue ;
+$toggle-ios-handle-background-color-off: green ;
+
+//$toggle-ios-active-color: blue ;
+$toggle-md-active-color: blue ;
+//$toggle-md-track-background-color: blue ;
+//$toggle-md-track-background-color-off: red ;
+$toggle-md-handle-background-color-on: white ;
+$toggle-md-handle-background-color-off: gray ;
+$toggle-md-track-width: 51px ;
+$toggle-md-handle-height: $ksd-toggle-size ;
+$toggle-md-handle-width: $ksd-toggle-size ;
+$toggle-md-padding-start: 100px ;
+//$toggle-md-item-start-padding-top: 60px ;
+*/
+
+//$ksd-background-color: blue ;
+$ksd-footer-button-color: #FFDD55;
+$ksd-footer-button-text-color: #00007D;
+$ksd-label-text-color: black;
+$ksd-font-stack: latoregular, Helvetica, sans-serif;
+
+
+// $segment-button-md-text-color-activated: #00D4AA ;
+// $segment-button-md-border-color-activated: black ;
+
+body {
+    font-family: "latoregular";
+    font-size: 17px;
+}
+
+.md {
+    $item-md-divider-color: #efefef;
+    .item-divider-md {
+        //max-height: 4px ;
+        min-height: 1px;
+        max-height: 1px;
+    }
+
+    .datetime-md {
+        padding: 0px;
+    }
+
+    .button-md {
+        min-height: 48px ;
+    }
+
+    ion-toggle.toggle.toggle-md {
+        position: absolute;
+
+        //  padding:0px;
+   
+    }
+
+    .toggle-md.toggle-checked .toggle-icon {
+        background-color: lightgreen;
+    }
+
+    .bar-button-md[icon-only] {
+        background-color: #F7F7F7;
+        color: black;
+    }
+
+    .picker-md .button {
+        font-size: 17px;
+        color: black;
+    }
+
+    .picker-md .picker-toolbar {
+        background-color: lightgray;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .picker-md .picker-opt {
+        //   color: green ;
+        color: #A3A6AE;
+    }
+
+    .picker-md .picker-opt.picker-opt-selected {
+        color: black;
+    }
+}
+
+.ios {
+    $item-ios-divider-color: #efefef;
+    .item-divider-ios {
+        min-height: 1px;
+        max-height: 1px;
+    }
+    //Required for Header Icon
+    .bar-button-default-ios {
+        color: black;
+    }
+
+
+    ion-toggle.toggle.toggle-ios {
+        position: absolute;
+    }
+
+    .toggle-ios.toggle-checked .toggle-icon {
+        background-color: lightgreen;
+    }
+
+    .bar-button-ios[icon-only] {
+        background-color: #F7F7F7;
+        color: black;
+    }
+
+    .button-ios {
+        min-height: 48px ;
+        background-color: $ksd-footer-button-color ;
+        color: $ksd-footer-button-text-color;
+    }
+
+    .button-ios.activated {
+        background-color: $ksd-footer-button-color ;
+    }
+
+    .picker-ios .button {
+        font-size: 17px;
+        color: black;
+    }
+
+    .picker-ios .picker-toolbar-button {
+        background-color: lightgray;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .picker-ios .picker-opt {
+        //   color: green ;
+        color: #A3A6AE;
+    }
+
+    .picker-opt.picker-opt-selected {
+        color: black;
+    }
+}
+
+.alert-button .alert-button {
+    background-color: blue;
+}
+
+$text-input-md-show-focus-highlight: true ;
+$text-input-md-show-valid-highlight:      
+$text-input-md-show-focus-highlight !default;
+$text-input-md-show-invalid-highlight:    $text-input-md-show-focus-highlight !default;
+
+$text-input-md-show-success-highlight:      true !default;
+$text-input-md-show-error-highlight:        true !default;
+// Input highlight - normal
+$text-input-md-highlight-color:             orange ;
+// Input highlight - valid
+$text-input-md-hightlight-color-valid:      gray ;
+// Input highlight - invalid
+$text-input-md-hightlight-color-invalid:    red ;
+/// @prop - Color of the input highlight when valid
+$text-input-highlight-color-valid:       #32db64 !default;
+/// @prop - Color of the input highlight when invalid
+$text-input-highlight-color-invalid:     #f53d3d !default;
+/// @prop - Color of the input placeholder
+$text-input-placeholder-color:           #999 !default;
+$text-input-md-highlight-color-invalid: red;
+$text-input-md-highlight-color-valid: transparent;
+$text-input-md-show-invalid-highlight: orange;
+$text-input-md-highlight-color: transparent;
+$text-input-md-show-valid-highlight: transparent;
+.item-md.item-input.input-has-focus .item-inner {
+    box-shadow: none;
+}
+/*
+$alert-md-background-color: #f8f8f8;
+$alert-md-message-text-color: red;
+$alert-md-input-border-color: green;
+$alert-md-button-background-color: green;
+$alert-md-button-color: black;
+$alert-md-button-text-color: black ;
+$alert-md-button-background-color: #f8f8f8; 
+$alert-md-border-radius: 13px ;
+
+//F0F1F3;
+$alert-ios-background-color: #f8f8f8;
+$alert-ios-message-text-color: red;
+$alert-ios-input-border-color: green;
+$alert-ios-button-background-color: green;
+$alert-ios-button-color: black;
+$alert-ios-button-text-color: black ;
+$alert-ios-button-background-color: #f8f8f8; 
+*/
+
+// .ng-valid[required], .ng-valid.required {
+//     border-left: 5px solid green ;
+// }
+// ion-input.ng-dirty.ng-touched.ng-invalid {
+// //    border-left: 5px solid red ;
+// }
+
+// .ng-valid[required], .ng-valid.required {
+//     border-left: 5px solid green ;
+// }
+
+// .ng-invalid[required], .ng-invalid.required {
+//     border-left: 5px solid black ;
+// }
+
+// .ng-invalid:not(form) {
+//     border-left: 5px solid red ;
+// }

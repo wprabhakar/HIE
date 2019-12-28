@@ -1,0 +1,96 @@
+page-search-result {
+    // .ksd-spacer {
+    //   padding: 0px ;
+    //   margin: 0px ;
+    //   margin-bottom: 16px ;
+    // }
+
+    .ksd-padding {
+        padding: 0px;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: inherit;
+    }
+
+    .ksd-merchant {
+        font-family: "latoregular";
+        font-size: 16px;
+        color: black;
+        min-width: 160px;
+        max-width: 160px;
+        min-height: 40px;
+    }
+
+    .ksd-cuisine {
+        font-family: "latoregular";
+        font-size: 12px;
+        color: #A3A6AE;
+        vertical-align: bottom;
+    }
+
+    .ksd-header {
+        color: grey;
+        margin: 5px;
+        padding: 15px;
+    }
+
+    // .ksd-image {
+    //    height:70px ;
+    //    width: 70px ;
+    //    padding: 0px ;
+    //  }
+
+    //   .ksd-discount{
+    //     color: red ;
+    //     margin: 0px ;
+    //     padding: 0px ;
+    //     margin-left: 10px ;
+    //     font-size: 16px ;
+    //   }
+    //   .ksd-days {
+    //     font-size: 10px ;
+    //     margin: 0px ;
+    //     margin-left: 10px ;
+    // //   font-size: 70% ;
+    //     color: grey ;
+    //     // margin: 0px ;
+    //     // padding: 0px ;
+    //   }
+
+    .ksd-image-width {
+        max-width: 70px;
+        max-height: 70px;
+        padding: 0px;
+        padding-left: 5px;
+    }
+
+    .ksd-align-bottom {
+        vertical-align: bottom;
+        float: none;
+    }
+
+    .alert-md .alert-head {
+      background: url(../assets/img/ico_warning.svg) no-repeat;
+      background-position-x: center;
+
+    }
+    //.ksd-confirm-change 
+    // .alert-md .alert-button-group {
+    //   background-color: yellow;
+    // }
+    div .alert-md .alert-title {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            background: url(../assets/img/ico_warning.svg) no-repeat;
+            background-position-x: center;
+
+            //    width: 80px;
+            height: 35px;
+            align-items: center;
+
+            //   margin: 20px auto 0 auto;
+       
+        }
+//    }
+}

@@ -1,0 +1,67 @@
+page-login-error {
+
+  // ion-grid {
+  //   padding: 0px ;
+  //   margin: 0px ;
+  // }
+  .ksd-spacer {
+      padding-top: 158px ;
+  }
+  .ksd-spacer-0 {
+      padding-top: 30px ;
+  }
+  .ksd-spacer-1 {
+      padding-top: 30px ;
+  }
+  .dialog-position {
+    height: 190px;  // Change this to adjust the height of the dialog
+    width: 285px ;
+    background-color: white ;
+    justify-content: center;
+    padding: 0px ;
+  }
+
+ //Required to cover the botton space
+ .button-md {
+      min-height: 4.2rem ;
+      max-height: 4.2rem ;
+      color: white ;
+  }   
+
+  .ksd-text {
+    font-family: "latoregular" ;
+    font-size: 17px ;
+    color: #FA0505 ;
+  }
+
+  .ksd-error {
+    padding:0px ;
+    margin: 0px ;    
+//    box-shadow: none ;
+  }
+
+
+  // //OK Button Color & Size
+  // span {
+  //   font-family: "latoregular" ;
+  //   color: white ;
+  //   font-size: 17px ;
+  //   text-transform: none; 
+  //   padding:0px ;
+  //   margin: 0px ;    
+  // }
+ 
+  .warning {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      
+      background: url(../assets/img/ico_warning.svg) no-repeat ; 
+      background-position-x: center ;
+      width: 80px;
+      height: 35px;
+      align-items: center ;
+  //   margin: 20px auto 0 auto;
+  }
+
+}

@@ -1,0 +1,252 @@
+https://ionicframework.com/docs/api/components/input/Input/
+https://ampersandacademy.com/tutorials/ionic-framework-version-2/form-validation-with-error-message-example-using-the-angular-validators
+
+https://yannbraga.com/2017/06/02/ionic-custom-components-and-templates/
+
+Validations
+  1. After adding item in cart, 
+      a. If user changes date  ?
+      b. Users goes to the Search Screen
+  2. 
+    
+    .ksd-modal-page {
+        padding: 30px;
+        background: rgba(0,0,0,0.5);
+    }
+
+    .ksd-error {
+         background-color: red ;
+    }
+    .ksd-warning {
+         background-color: yellow ;
+    }
+  /*  
+    .item-md {
+        padding: 0px ;
+        margin: 0px ;
+    }
+
+    .input-wrapper {
+        vertical-align: bottom ;
+    }
+
+    div.item-inner {
+        padding:0px ;
+        border: 0px ;
+    }
+    .label-md {
+        margin: 0px ;
+    }
+    .button-md {
+        padding: 0px ;
+        margin: 0px ;
+    }
+
+*/
+  .label-md {
+      padding:0px ;
+      margin: 0px ;
+  }
+  .item-md {
+      padding: 0px ;
+  }
+  /*
+  .item-inner {
+      padding: 0px ;
+      margin: 0px ;
+      width: 100% ;
+    border-bottom:0 !important;
+  }
+
+  div.item-inner {
+      padding: 0px ;
+  }
+  */
+.item-md.item-block .item-inner {
+    padding: 0px ;
+}
+    .input-wrapper {
+    vertical-align: bottom ;
+   }
+
+
+//     .button-md {
+//         background-color: red ;
+// //        height: 135px;
+// //        color: red ;
+//     }
+// .center {
+//     margin-left: auto;
+//     margin-right: auto;
+//     display: block;
+// }
+
+/*
+button {
+  font-family: "latoregular" ;
+  font-size: 20px ;
+  color:white ;
+  min-height: 5.0rem ;
+}
+*/
+
+/*
+p {
+  font-family: "latoregular" ;
+  font-size: 17px ;
+  color: #FA0505 ;
+  margin: 0px ;
+  padding: 0px ;
+}
+*/
+
+//OK Button Color
+span {
+    color: white ;
+    text-transform: none; 
+}
+
+/*
+.modal-wrapper {
+    position: absolute;
+    width: 90%;
+    height: 65%; 
+    top: 20%;
+    left: 5%;
+  }
+  @media not all and (min-height: 600px) and (min-width: 768px) {
+  ion-modal ion-backdrop {
+    visibility: visible;
+    }
+  }
+*/
+
+  ion-grid {
+    height: 100%;
+    width: 80% ;
+    justify-content: center;
+}
+/*
+div {
+    width: 100% ;
+      align-items: center;
+        justify-content: center;
+
+}
+*/
+.warning {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    
+//   margin: 50px 0px 0 90px ;
+//    padding-left: 30px ;
+ //   padding-right: 30px ;
+    background: url(../assets/img/ico_warning.svg) no-repeat ; 
+ //   background-position: center; 
+    //top left;
+//    background-size: contain;
+    width: 80px;
+    height: 35px;
+   align-items: center ;
+//   margin: 20px auto 0 auto;
+}
+
+
+
+    <ion-col>
+      <!--<div class="image-container">-->
+      <!--<ion-img [src]="getImageURL(oItem)" width="48" height="48"></ion-img>-->
+      <!--<img src="http://lorempixel.com/200/300" />-->
+      <!--<div class="after">-->
+      <div class="show-image">
+        <img src="{{getImageURL(oItem)}}" />
+        <!--<input class="update" type="button" value="Update" />
+    <input class="delete" type="button" value="Delete" />-->
+        <!--<span class="content">-->
+          <!--ksd-upload-button-->
+              <div class="update" (click)="checkPermissions()">
+                <button ion-button full><ion-icon name="md-camera"></ion-icon> Upload</button>
+              </div>
+        <!--</span>-->
+      </div>
+      <!--</div>-->
+    </ion-col>
+
+
+<ion-header  align-title="center">
+
+  <ion-navbar>
+    <ion-title>Incoming Order</ion-title>
+    <button ion-button menuToggle (click)="goBack()">
+      <ion-icon name="back"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="bLoaded">
+    <ion-list>
+      <ion-item-group padding *ngFor="let g of oItemGroupedByDate;">
+        <div class="ksd-date">{{g.PICKUPON}}</div>
+        <ion-card class="ksd-card" *ngFor="let o of g.data;" ion-item>
+          <ion-row>
+            <ion-col>
+              <div class="ksd-time">{{o.PICKUPSTART}} - {{o.PICKUPEND}}</div>
+            </ion-col>
+            <ion-col>
+              <div class="ksd-name">{{o.CUSTOMER_NAME}}</div>
+            </ion-col>
+            <ion-col>
+              <div class="ksd-order-number">Order No. {{o.BOOKINGREF}}</div>
+            </ion-col>
+          </ion-row>
+          <ion-item no-padding ion-item class="ksd-card" *ngFor="let oD of o._D; let i = index;" (click)="showOrderDetails(o)">
+            <ion-item class="ksd-card" no-padding  item-left >
+              <div class="ksd-details">{{oD.QUANTITY}} x {{oD.TITLE}}</div>
+            <button align-right ion-button round *ngIf="i == o._D.length - 1" class="ksd-round-button" item-right (click)="changeOrderStatus(oD)">Confirm</button>
+            <!--<ion-badge class="ksd-badge" *ngIf="i == o.DETAILS.length - 1" item-right (click)="changeOrderStatus(oD)">Confirm</ion-badge>-->
+            </ion-item>
+          </ion-item>
+          <ion-item no-lines class="ksd-spacer ksd-card">
+          </ion-item>
+        </ion-card>
+      </ion-item-group>
+    </ion-list>
+  </div>
+
+  
+
+<ion-content padding>
+  <div *ngIf="bLoaded">
+    <ion-list>
+      <ion-item-group padding *ngFor="let g of oItemGroupedByDate; let i = index">
+        <div class="ksd-date">{{g.PICKUPON}}</div>
+        <ion-card class="ksd-card" *ngFor="let o of g.data; let i = index" ion-item>
+          <ion-row>
+            <ion-col>
+              <div class="ksd-time">{{o.PICKUPTIME}}
+                <!--{{o.PICKUPSTART}} - {{o.PICKUPEND}}-->
+                </div>
+            </ion-col>
+            <ion-col>
+              <div class="ksd-name">{{o.CUSTOMER_NAME}}</div>
+            </ion-col>
+            <ion-col>
+              <div class="ksd-order-number">Order No. {{o.BOOKINGREF}}</div>
+            </ion-col>
+          </ion-row>
+          <ion-item no-padding ion-item class="ksd-card" *ngFor="let oD of o._D; let i = index;">
+            <ion-item class="ksd-card" no-padding  item-left >
+              <div class="ksd-details">{{oD.QUANTITY}} x {{oD.TITLE}}</div>
+              <button align-right ion-button round *ngIf="i == o._D.length - 1" class="ksd-round-button" item-right (click)="changeOrderStatus(oD)">Fulfilled</button>
+            </ion-item>
+          </ion-item>
+          <ion-item no-lines class="ksd-spacer ksd-card">
+          </ion-item>
+        </ion-card>
+      </ion-item-group>
+    </ion-list>
+  </div>
+</ion-content>

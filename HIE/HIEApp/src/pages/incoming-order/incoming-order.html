@@ -1,0 +1,82 @@
+<ion-header align-title="center">
+
+  <ion-navbar>
+    <ion-title>Incoming Order</ion-title>
+    <button ion-button menuToggle (click)="goBack()">
+      <ion-icon name="back"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div *ngIf="bLoaded">
+    <div *ngIf="oItemGroupedByDate.length == 0">
+      <p class="ksd-no-result">{{sErrorText}}</p>
+    </div>
+    <div no-padding *ngFor="let g of oItemGroupedByDate">
+      <div class="ksd-date">{{g.PICKUPON | date: 'dd MMM yyyy'}}</div>
+      <ion-card padding [class]="getStyle(g.PICKUPON)" *ngFor="let o of g.data;" ion-item>
+        <ion-row class="ksd-padding">
+          <ion-col col-3>
+            <div class="ksd-time">{{o.PICKUPTIME}}</div>
+          </ion-col>
+          <ion-col col-3>
+            <div class="ksd-name">{{o.CUSTOMER_NAME}}</div>
+          </ion-col>
+          <ion-col col-6 item-right>
+            <div class="ksd-order-number">Order No. {{o.BOOKINGREF}}</div>
+          </ion-col>
+        </ion-row>
+        <ion-item no-padding ion-item [class]="getStyle(g.PICKUPON)" *ngFor="let oD of o._D; let i = index;">
+          <ion-item no-padding item-left [class]="getStyle(g.PICKUPON)">
+            <div class="ksd-details" (click)="showOrderDetails(o)">{{oD.QUANTITY}} x {{oD.TITLE}}</div>
+            <button align-right ion-button round *ngIf="i == o._D.length - 1" class="ksd-round-button" item-right (click)="changeOrderStatus(oD)">Confirm</button>
+          </ion-item>
+        </ion-item>
+        <ion-item no-lines *ngIf="i == o._D.length - 1" [class]="getStyle(g.PICKUPON)">
+          <div style="padding-bottom: 20px"></div>
+        </ion-item>
+        <!--<ion-item no-lines class="ksd-spacer ksd-card">
+        </ion-item>-->
+      </ion-card>
+      <div style="padding-bottom: 20px;" [class]="getStyle(g.PICKUPON)"></div>
+    </div>
+  </div>
+
+
+  <!--<div *ngIf="bLoaded">
+    <ion-list>
+      <ion-item  *ngFor="let o of oItems; let i = index">
+        <div>{{o.PICKUPON}}</div>
+        <div>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item *ngFor="let o of oItems; let i = index">
+        <p>{{o.PICKUPON}}<br>
+          <p>
+            <p>{{o.PICKUPSTART}} - {{o.PICKUPEND}} {{o.CUSTOMER_NAME}} {{o.BOOKINGREF}}</p>
+            <ion-item>
+              <ion-row *ngFor="let oD of o.DETAILS; let i = index;">
+                <ion-col no-padding>
+                  <ion-row>
+                    <ion-col>
+                      <span text-left class="ksd-merchant">{{oD.QUANTITY}} x {{oD.TITLE}}</span>
+                      <span text-right *ngIf="i == o.DETAILS.length - 1">
+                        <ion-badge item-right (click)="changeOrderStatus(oD)">Confirm</ion-badge>
+                      </span>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+      </ion-item>
+    </ion-list>
+  </div>-->
+</ion-content>
+<ion-footer>
+  <button primary ion-button full (click)="nextPage()">
+    <p class="ksd-anchor-button"> View confirmed order</p>
+  </button>
+</ion-footer>

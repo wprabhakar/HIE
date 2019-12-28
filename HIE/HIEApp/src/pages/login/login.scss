@@ -1,0 +1,142 @@
+page-login {
+    $label-md-margin-start:	5px ;
+//    ion-label {
+// //        margin-left: 10px ;
+//         padding-left: 20px ;
+//     }
+//     ion-input {
+//         //        margin-left: 10px ;
+//                 padding-left: 20px ;
+//             }
+        
+ion-icon:before {
+    font-size: 32px !important;
+    padding-right: 10px ;
+    color: #3990D9;
+    margin-top: 2px ;
+}
+/*
+.ksd-fb-image {
+    height: 32px;
+    width: 32px ;
+    margin-left: calc(50% - (40% / 2));
+}
+*/
+
+.ksd-forgot-password {
+    font-family: 'latolight' ;
+    font-size: 13px ;
+    color: #606060 ;
+    padding: 0px ;
+    padding-top: 14px ;
+    padding-bottom: 60px ;
+}
+// ion-title {
+//   margin-top: 4%;
+// }
+
+
+// div.ksd-or:before {
+// //    margin: 3px 0px; 
+//     display: block ;
+//     content: '' ;
+//     border-bottom: 1px solid black;
+//     //margin-right:20px;
+//         left: 50%;
+//     transform: translate(-50%, -50%);
+
+//     width: 4% ;
+//     //right: 50% ;
+//     //    background: url("icon.jpg") no-repeat;
+// }
+
+.ksd-create-account {
+    font-family: 'latolight' ;
+    font-size: 15px ;
+    color: #606060 ;
+    margin-top: 80px ;
+    left: 40% ;
+//    position: absolute;
+//    bottom: 40px;
+  }
+
+.ksd-spacer {
+    padding-top: 56px ;
+}
+.ksd-spacer-1 {
+    padding-top: 28px ;
+}
+
+.ksd-email {
+    font-family: 'latoregular' ;
+    font-size: 17px ;
+    color: #606060 ;
+}
+
+.ksd-fb-login-text span.button-inner {
+    background-color: white ;
+}
+
+.ios .button-ios.activated {
+    background-color: white ;    
+}
+//     //OK Button Color & Size
+//   span {
+// //    color: black ;
+//     font-size: 20px ;
+//     text-transform: none; 
+//   }
+
+    // input {
+    //     padding: 50px
+    // }
+/*    
+.scroll-content{
+     overflow: hidden;
+}
+*/
+
+/*
+.swiper-container {
+    height: 50%;
+}
+*/
+/*
+.ion-slides {
+  height: 50px ;
+}
+
+.swiper-wrapper {
+    height: 50vh;
+//    height: 200px;
+}
+*/
+
+.ksd-field-spacer {
+  padding-top: 20px ;
+}
+/*
+h1 {
+ overflow: hidden;
+ text-align: center;
+}
+h1:before,
+h1:after {
+ background-color: red;
+ content: "";
+ display: inline-block;
+ height: 1px;
+ position: relative;
+ vertical-align: middle;
+ width: 10px;
+}
+h1:before {
+ right: 0.5em;
+ margin-left: -50%;
+}
+h1:after {
+ left: 0.5em;
+ margin-right: -50%;
+}
+*/
+}

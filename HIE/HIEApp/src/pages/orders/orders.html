@@ -1,0 +1,94 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="hie-menu"></ion-icon>
+    </button>
+    <ion-title>My transaction</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content overflow-scroll="false">
+  <!--   <ion-searchbar [(ngModel)]="sText" (ionInput)="onSearchInput()" [formControl]="searchControl"></ion-searchbar>
+  <div *ngIf="bSearching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+ -->
+  <div class="ksd-spacer"></div>
+  <!-- <ion-item> -->
+  <!--<ion-segment-button value="Upcoming" (click)="loadUpcoming(false)">
+        </ion-segment-button>
+        <ion-segment-button value="History" (click)="loadUpcoming(false)">
+        </ion-segment-button>-->
+  <ion-item no-padding>
+    <ion-row no-padding class="ksd-options">
+      <ion-col no-padding width-50 text-center align-center>
+        <button ion-button outline clear full (click)="loadUpcoming(true)" [class]="getMenuClass(true)">Upcoming</button>
+      </ion-col>
+      <ion-col no-padding width-50 text-center align-center>
+        <button ion-button outline clear full (click)="loadUpcoming(false)" class="ksd-menu-options" [class]="getMenuClass(false)">History</button>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-item-divider no-padding></ion-item-divider> -->
+  </ion-item>
+  <div *ngIf="bLoaded">
+    <div *ngIf="oItems.length == 0">
+      <p class="ksd-no-result">{{sErrorText}}</p>
+    </div>
+    <!-- <div no-padding *ngIf="oCheckReminders.length == 0"> -->
+    <div no-padding *ngFor="let o of oItems; let i = index">
+      <ion-row no-padding class="ksd-options ksd-bottom-space">
+        <ion-col no-padding col-3>
+          <div class="ksd-date">{{o.PICKUPON | date: 'dd MMM yyyy'}}</div>
+        </ion-col>
+        <ion-col no-padding col-1>
+          <div no-padding class="ksd-date">|</div>
+        </ion-col>
+        <ion-col no-padding col-7 text-left>
+          <div class="ksd-time">{{o.PICKUPTIME}}</div>
+        </ion-col>
+        <ion-col width-80></ion-col>
+      </ion-row>
+      <!--<ion-item-divider no-padding></ion-item-divider>-->
+      <ion-item no-padding>
+        <ion-row no-padding class="ksd-card">
+          <ion-col width-90 col-4 class="ksd-order">Order Number : {{o.BOOKINGREF}}
+            <ion-row no-padding>
+              <ion-col no-padding col-8 class="ksd-outlet">{{o.NAME}}
+                <span class="ksd-order-status">|{{o.STATUS_MESSAGE}}</span>
+              </ion-col>
+              <!-- <ion-col no-padding col-3 text-right align-right class="ksd-order-status">| {{o.STATUS_MESSAGE}}</ion-col> -->
+              <!-- <ion-col no-padding col-3 text-left align-left class="ksd-order-status">| {{o.STATUS_MESSAGE}}</ion-col> -->
+            </ion-row>
+            <!--<div class="ksd-outlet">{{o.NAME}} |
+              <span class="ksd-order-status">  {{o.STATUS_MESSAGE}}</span>
+            </div>-->
+          </ion-col>
+          <ion-col width-10></ion-col>
+          <ion-col width-10 *ngIf="bShowUpcoming">
+            <button align-right ion-button round (click)="onRemindMe(o)" class="ksd-round-button" item-right *ngIf="o.REMIND == 'Y'">Remind me</button>
+            <button align-right ion-button round class="ksd-round-button" item-right *ngIf="o.REMIND == 'C'">Checking...</button>
+          </ion-col>
+        </ion-row>
+        <ion-row no-padding class="ksd-options" no-padding *ngFor="let oD of o._D">
+          <ion-col class="ksd-image-width">
+            <img class="ksd-image" [src]="oAPIService.buildImageURL(oD,o.MUSERS_ID)" /> </ion-col>
+          <ion-col width-80>
+            <ion-row>
+              <ion-col class="ksd-details">
+                {{oD.QUANTITY}} x {{oD.TITLE}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="ksd-price">
+                ${{oD.DISCOUNTEDPRICE |number:'1.2'}}
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
+    <!-- </div> -->
+  </div>
+</ion-content>

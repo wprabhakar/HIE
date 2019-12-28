@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2912 45 18.974 12">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #000;
+        stroke-width: 2px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="group-8" transform="translate(2892 -1)">
+    <path id="Path-94" class="cls-1" d="M3,7H21.974" transform="translate(17 40)"/>
+    <path id="Path-94-Copy" class="cls-1" d="M3,12H15.659" transform="translate(17 40)"/>
+    <path id="Path-94-Copy-2" class="cls-1" d="M3,17H18.816" transform="translate(17 40)"/>
+  </g>
+</svg>

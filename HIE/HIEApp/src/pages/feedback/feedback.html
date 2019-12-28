@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <!-- <ion-buttons left>
+          <button ion-button icon-only (click)="goBack()">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons> -->
+    <button ion-button menuToggle>
+      <ion-icon name="hie-menu"></ion-icon>
+    </button>
+    <ion-title>Feedback</ion-title>
+    <!--<ion-buttons end>
+      <cart-indicator (wasClicked)="openCart()"></cart-indicator>
+      <button (click)="go2Search()">S</button>
+    </ion-buttons>-->
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div no-padding class='ksd-spacer-1'></div>
+  <ion-grid>
+    <ion-row no-padding>
+      <ion-col>
+        <form [formGroup]='oInputForm'>
+          <ion-label>Add your feedback here...</ion-label>
+          <ion-textarea class="ksd-address" formControlName="description"></ion-textarea>
+          <!-- <ion-input formControlName="description" type='text'>
+            </ion-input> -->
+          <div no-padding class='ksd-spacer-2'></div>
+          <button ion-button full (click)="onSave()" [disabled]="!oInputForm.valid">Add feedback</button>
+        </form>
+      </ion-col>
+    </ion-row>
+    <!--<ion-row>
+        <ion-col>
+          <ion-item *ngIf="!oInputForm.valid">
+            <p>Feedback must be 3-10 characters</p>
+          </ion-item>
+        </ion-col>
+      </ion-row>-->
+  </ion-grid>
+  <!--<div no-padding class='ksd-spacer-3'></div>-->
+  <ion-grid *ngIf="bLoaded == true">
+    <!-- <div no-padding class='ksd-spacer-3'></div> -->
+    <ion-item no-padding class='ksd-spacer-3' *ngFor="let o of oItems">
+      <!--<ion-item no-lines>-->
+      <div no-padding class='ksd-who'>{{o.NAME}} . {{getElapsedTime(o.TS, o.CURRENT_TIMESTAMP)}}
+      </div>
+      <!--</ion-item>-->
+      <div no-padding text-justify text-left text-wrap class='ksd-review'>{{o.DESCRIPTION}}</div>
+      <div style="padding-bottom: 25px"></div>
+      <!--<ion-item-options>
+          <button (click)="onRemoveItem(o)" color='danger' ion-button icon-left><ion-icon name='trash'></ion-icon> Delete</button>
+        </ion-item-options>-->
+      <!--</ion-item-sliding>-->
+    </ion-item>
+    <ion-infinite-scroll (ionInfinite)="loadMoreItems($event)" *ngIf="noMoreItemsAvailable==false">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-grid>
+</ion-content>

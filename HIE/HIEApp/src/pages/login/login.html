@@ -1,0 +1,145 @@
+<ion-header>
+
+  <ion-navbar align-title="center">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<!-- http://www.joshmorony.com/create-an-animated-login-screen-in-ionic-2/
+ -->
+
+<ion-content>
+  <div class="ksd-spacer"></div>
+  <!--<ion-row>
+    <ion-col>
+      <ion-slides [options]="_options" #mySlider>
+        <ion-slide *ngFor="let testSlide of testSlides">
+          <img src="http://placehold.it/150x150">
+        </ion-slide>
+      </ion-slides>
+      <div class="swiper-pagination"></div>
+    </ion-col>
+  </ion-row>-->
+  <!--<ion-col>
+      <button ion-button block color="fb-color" (click)="fbLogin()">
+        Sign in with Facebook
+      </button>
+    </ion-col>
+    <ion-row>
+        <ion-col>
+      <button ion-button block color="gp-color" (click)="gpLogin()">
+        Sign in with Google Plus
+      </button>
+        </ion-col>
+    </ion-row>
+    <ion-col>-->
+  <!--<div class="spacer"></div>-->
+  <!--<ion-list>-->
+      <!-- <div class="card-js"></div> -->
+  <ion-grid>
+      <!-- CSS is included via this JavaScript file -->
+    <form [formGroup]='oInputForm'>
+      <ion-item>
+        <!-- <ion-icon name="person" item-left></ion-icon>         -->
+        <ion-label for="email" floating>Email</ion-label>
+        <!--<ion-input type="text" [(ngModel)]="data.email" name="username"></ion-input>-->
+        <ion-input id="email" type="email" class="ksd-email" formControlName="email"></ion-input>
+        <!-- [class.invalid]="!oInputForm.controls.email.valid && (oInputForm.controls.email.dirty || submitAttempt)" -->
+
+        <!-- <ion-label>{{oInputForm.controls.email.className}}</ion-label> -->
+        <!-- <ion-item *ngIf="!oInputForm.controls.email.valid  && (oInputForm.controls.email.dirty || submitAttempt)">
+          <p>Please enter a valid email.</p>
+        </ion-item>
+        <p *ngIf="oInputForm.controls.email.$invalid && !oInputForm.controls.email.$pristine" class="help-block">You name is required.</p> -->
+
+      </ion-item>
+      <!-- Working fine -->
+      <!-- <ion-item no-lines *ngIf="oInputForm.controls.email.hasError('required')">
+        <div class="error">required</div>
+      </ion-item>
+      <ion-item no-lines *ngIf="oInputForm.controls.email.hasError('minlength')">
+        <div class="error">Min Length</div>
+      </ion-item>
+      <ion-item no-lines *ngIf="oInputForm.controls.email.hasError('email')">
+        <div class="error">invalid email</div>
+      </ion-item> -->
+      <div class="ksd-field-spacer"></div>
+      <ion-item>
+        <ion-label for="password" floating>Password</ion-label>
+        <ion-input id="password" type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <div class="ksd-field-spacer"></div>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button full (click)="DBLogin(oInputForm.value)" [disabled]="!oInputForm.valid">Login</button>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-item no-lines>
+        <button ion-button block class="ksd-login" (click)="DBLogin(oInputForm.value)" [disabled]="!oInputForm.valid">Login</button>
+      </ion-item> -->
+    </form>
+    <!--<button style="margin-top: 20px" ion-button full (click)="DBLogin()">Login</button>-->
+
+  </ion-grid>
+  <div no-padding text-center class="ksd-forgot-password" (click)="onForgotPassword()">Forgot Password ?
+  </div>
+  <div text-center no-padding class="ksd-or">
+    or
+  </div>
+  <div class="ksd-spacer-1"></div>
+  <ion-row>
+    <ion-col>
+      <button icon-left ion-button clear outline class="ksd-fb-button" full (click)="fbLogin()">
+      <ion-icon class="ksd-icon" name="logo-facebook"><span class="ksd-fb-login-text"> Log in with facebook</span></ion-icon>
+    </button>
+      <!-- <button icon-left ion-button clear outline class="ksd-fb-button" full (click)="fbLogin()">
+      <ion-icon class="ksd-icon" name="logo-facebook"><span class="ksd-fb-login-text"> Log in with facebook</span></ion-icon>
+    </button> -->
+    </ion-col>
+  </ion-row>
+  <div no-padding text-center class="ksd-create-account" (click)="onRegister()">Need an account?</div>
+  <!--</form>-->
+</ion-content>
+<!-- <script>
+    var card = new Card({
+      // a selector or DOM element for the form where users will
+      // be entering their information
+      form: 'form', // *required*
+      // a selector or DOM element for the container
+      // where you want the card to appear
+      container: '.card-container', // *required*
+
+      formSelectors: {
+        numberInput: 'input#number', // optional — default input[name="number"]
+        expiryInput: 'input#expiry', // optional — default input[name="expiry"]
+        cvcInput: 'input#cvc', // optional — default input[name="cvc"]
+        nameInput: 'input#name' // optional - defaults input[name="name"]
+      },
+
+      width: 200, // optional — default 350px
+      formatting: true, // optional - default true
+
+      // Strings for translation - optional
+      messages: {
+        validDate: 'valid\ndate', // optional - default 'valid\nthru'
+        monthYear: 'mm/yyyy', // optional - default 'month/year'
+      },
+
+      // Default placeholders for rendered fields - optional
+      placeholders: {
+        number: '•••• •••• •••• ••••',
+        name: 'Full Name',
+        expiry: '••/••',
+        cvc: '•••'
+      },
+
+      masks: {
+        cardNumber: '•' // optional - mask card number
+      },
+
+      // if true, will log helpful messages for setting up Card
+      debug: false // optional - default false
+    });
+  </script> -->

@@ -1,0 +1,76 @@
+<ion-header>
+  <!--ngClass="{'hide-header': bShowHeader, 'show-header': bHideHeader}">-->
+
+  <!--For Full Screen<ion-navbar  *navbar>-->
+  <ion-navbar>
+
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="hie-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="bLoaded">
+    <ion-item no-padding>
+      <ion-row>
+        <ion-col no-padding class="ksd-col-head">
+          <img width="100" height="100" [src]="oAPIService.buildImageURL(oMerchant,oLoginService.getUserID())" />
+        </ion-col>
+        <ion-col no-padding>
+          <ion-row>
+            <ion-col no-padding class="ksd-merchant-name">
+              {{oMerchant.NAME}}
+            </ion-col>
+          </ion-row>
+          <ion-row no-padding>
+            <ion-col no-padding>
+              <section class="container">
+                <div class="one ksd-merchant-info-label">Location : </div>
+                <div class="two ksd-merchant-info">{{oMerchant.REGION}}</div>
+              </section>
+              <!--<div>Location:<div class="ksd-merchant-info">{{oMerchant.REGION}}</div></div>-->
+            </ion-col>
+          </ion-row>
+          <ion-row no-padding>
+            <ion-col no-padding>
+              <section class="container">
+                <div class="one ksd-merchant-info-label">Food type : </div>
+                <div class="two ksd-merchant-info">{{oMerchant.CUISINES}}</div>
+              </section>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item no-padding class="ksd-search-padding">
+      <!-- <div no-padding> -->
+        <ion-searchbar class="ksd-searchbar" clear placeholder="Search" [(ngModel)]="sText" (ionInput)="onSearchInput()"></ion-searchbar>
+      <!-- </div> -->
+    </ion-item>
+    <ion-item no-lines>
+      <div></div>
+    </ion-item>
+    <ion-item no-lines text-wrap *ngFor="let o of oItems">
+      <ion-row (click)="onItemClick(o)">
+          <ion-col class="ksd-image-width" no-padding>
+            <img class="ksd-image" [src]="oAPIService.buildImageURL(o,oLoginService.getUserID(),'70h70w_', true)" />
+          </ion-col>
+          <ion-col width-80>
+            <p class="ksd-title">{{o.TITLE}}</p>
+            <p class="ksd-description">{{o.DESCRIPTION}}</p>
+          </ion-col>
+      </ion-row>
+      <!--<ion-item-divider></ion-item-divider>-->
+    </ion-item>
+  </div>
+</ion-content>
+<ion-footer>
+  <button primary ion-button full (click)="addMenu()"><p class="ksd-anchor-button">Add menu</p></button>
+</ion-footer>

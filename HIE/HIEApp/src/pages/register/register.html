@@ -1,0 +1,105 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create account</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="ksd-spacer-top"></div>
+  <form [formGroup]='oInputForm'>
+    <ion-list class="ksd-list-padding">
+      <ion-row class="ksd-spacer">
+        <ion-col col-3>
+          <ion-label>Name</ion-label>
+        </ion-col>
+        <ion-col col-9>
+          <ion-input required class="ksd-left-padding" required formControlName="NAME" type='text'>
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-item-divider></ion-item-divider>
+      <ion-row class="ksd-spacer">
+        <ion-col col-3>
+          <ion-label>Email</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input class="ksd-left-padding" formControlName="EMAIL" type='text'>
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-item-divider></ion-item-divider>
+      <ion-row class="ksd-spacer">
+        <ion-col col-3>
+          <ion-label>Password</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input class="ksd-left-padding" formControlName="PASSWORD" type='password'>
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-item-divider></ion-item-divider>
+      <ion-row class="ksd-spacer">
+        <ion-col col-3>
+          <ion-label>Mobile</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input class="ksd-left-padding" formControlName="MOBILE" type='phone'>
+          </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-item-divider></ion-item-divider>
+      <ion-row class="ksd-spacer">
+        <ion-col col-3>
+          <ion-label>Address</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-textarea class="ksd-left-padding" class="ksd-address" formControlName="ADDRESS"></ion-textarea>
+        </ion-col>
+      </ion-row>
+      <ion-item-divider></ion-item-divider>
+    </ion-list>
+    <ion-item no-lines>
+      <button ion-button block class="ksd-login" (click)="onCreate(oInputForm.value)" [disabled]="!oInputForm.valid">Create</button>
+    </ion-item>
+    <div class="ksd-err">
+      <div *ngIf="oForm.hasError('NAME')" class="alert alert-danger">
+        {{oForm.getError('NAME')}}
+      </div>
+      <div *ngIf="oForm.hasError('EMAIL')" class="alert alert-danger">
+        {{oForm.getError('EMAIL')}}
+      </div>
+      <div *ngIf="oForm.hasError('PASSWORD')" class="alert alert-danger">
+        {{oForm.getError('PASSWORD')}}
+      </div>
+      <div *ngIf="oForm.hasError('MOBILE')" class="alert alert-danger">
+        {{oForm.getError('MOBILE')}}
+      </div>
+      <!-- <div *ngIf="oForm.hasError('ADDRESS')" class="alert alert-danger">
+        {{oForm.getError('ADDRESS')}}
+      </div> -->
+    </div>
+    <div class="ksd-spacer"></div>
+    <!--<button ion-button full (click)="onCreate()" class="ksd-create" [disabled]="!oInputForm.valid">Create</button>-->
+    <div text-center no-padding class="ksd-or">
+      or
+    </div>
+    <div class="ksd-spacer-1"></div>
+    <ion-item no-lines>
+      <button icon-left ion-button clear outline class="ksd-fb-button" full (click)="fbLogin()">
+        <ion-icon class="ksd-icon" name="logo-facebook">
+          <span class="ksd-fb-login-text"> Sign in using facebook</span>
+        </ion-icon>
+      </button>
+    </ion-item>
+    <div>
+      <p text-center class="ksd-terms">By pressing sign up you agree with the Terms of Service and Privacy Policy.
+      </p>
+    </div>
+    <!--<ion-item no-lines>
+      <button icon-left ion-button clear outline class="ksd-fb-button" full (click)="fbLogin()">
+      <ion-icon class="ksd-icon" name="logo-facebook"><span class="ksd-fb-login-text"> Sign in using facebook</span></ion-icon>
+      </button>
+    </ion-item>-->
+  </form>
+</ion-content>

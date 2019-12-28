@@ -1,0 +1,185 @@
+page-view-menu {
+.ksd-spacer-top {
+  padding-top: 32px ;
+}
+.ksd-spacer-1 {
+  padding-top: 48px ;
+}
+.ksd-spacer-2 {
+  padding-top: 44px ;
+}
+.ksd-spacer-3 {
+  padding: 38px ;
+}
+
+// ion-toggle {
+//   padding: 0px ;
+//   margin: 0px ;
+//   width: 100% ;
+//   color: blue ;
+// }
+
+// ion-navbar {
+// background-image: url(http://http://localhost:4200/image/3/fries_PNG71.png);
+// background-color: transparent;
+// background-size: 100% 100%;
+// }
+
+.ksd-select
+{ 
+  padding: 0px ;
+  padding-top: 1px ;
+//  margin: 0px ;
+//  min-height: 2.4rem;
+//  max-height: 4.4rem;
+  box-sizing: border-box;
+}
+
+.item-md {
+  min-height: 0.2rem ;
+  max-height: 0.2rem ;
+}
+
+// ksd.select.input-wrapper {
+//   margin:0px ;
+//   padding:0px ;
+//     min-height: 2.0rem;
+
+// }
+/*
+//Align the Discount Rate
+.item[no-lines], .item.item[no-lines] .item-inner {
+    border: 0;
+    padding-left: 5px ;
+}
+
+//Align the Discount Days
+.item, .item.item .item-inner {
+    border: 0;
+    padding-left: 5px ;
+    background-color: white ;
+}
+*/
+
+//Adjust Discount Label alignment
+.ksd-discount-rate {
+  // padding-left: 0px ;
+  // margin-left: 0px ;
+  // padding-bottom: 0px ;
+  // margin-bottom: 0px ;
+  font-family: 'latolight';
+  font-size: 14px ;
+
+  margin:0px ;
+  padding:0px ;
+//  min-height: 2.0rem;
+}
+
+// div.input-wrapper {
+//     min-height: 2.0rem;
+//     max-height: 2.0rem;
+// }
+
+// div.item-inner {
+//   min-height: 2.5rem;
+//   max-height: 2.5rem;
+// }
+
+.ksd-discount-days {
+  font-family: 'latolight';
+  font-size: 14px ;
+  padding-left: 0px ;
+  margin-left: 0px ;
+  // min-height: 2.0rem;
+  // max-height: 2.0rem;
+}
+
+
+//Adjust Days column start position
+.ksd-border {
+//  margin-left: 0px ;
+  padding: 0px ;
+//  margin-bottom: 0px ;
+  margin: 0px ;
+  border-right: 1px solid #F0F1F3;
+//  font-family: 'latobold';
+  font-size: 14px ;
+  color: #000000 ;
+ // min-height: 6.0rem;
+ // max-height: 6.0rem;
+  }
+
+//Adjust Days column start position
+.ksd-right-border {
+//  margin-left: 0px ;
+//  padding: 0px ;
+//  margin-bottom: 0px ;
+  border-right: 1px solid #F0F1F3;
+  // min-height: 6.0rem;
+  // max-height: 6.0rem;
+  // 
+}
+
+  .main-content {
+    padding: 20px;
+    background-color: white;
+    position: absolute;
+    min-width: 100% ;
+}
+
+.ksd-bold {
+//  font-family: 'latobold';
+  font-size: 16px ;
+  color: #000000 ;
+}
+
+.ksd-price {
+//  font-family: 'latobold';
+  padding: 0px;
+  margin: 0px ;
+ // margin-left: 15px ;
+  font-size: 12px ;
+  color: #7C7E81 ;
+}
+
+.ksd-price-value {
+  padding: 0px;
+  margin: 0px ;
+  margin-left: 3px ;
+  font-size: 20px ;
+  color: #000000 ;
+  vertical-align: text-top ;
+}
+
+.ksd-food-type {
+  margin:0px ;
+  padding: 0px ;
+//  font-family: 'latolight';
+  font-size: 14px ;
+  color: #7C7E81 ;
+}
+
+.ksd-description {
+  padding: 0px;
+  margin: 0px ;
+  font-size: 14px ;
+  color: #000000 ;
+}
+.ksd-active-label {
+//    margin: 10px ;
+    padding-top: 10px ;
+}
+
+
+// .ksd-item-divider.item-divider {
+//   background-color: #336688;
+//   color: white;
+// }
+// .ksd-item-divider.item.activated {
+//   background-color: #336688;
+//   opacity: 0.8;
+// }
+
+
+}
+

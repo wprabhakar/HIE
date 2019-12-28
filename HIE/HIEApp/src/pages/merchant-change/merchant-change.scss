@@ -1,0 +1,63 @@
+page-merchant-change {
+  font-size: 10px ;
+  .left-padding {
+    padding: 20px ;
+    width: 100% ;
+  }
+     //Required to cover the botton and side space
+  .label-md {
+      padding:0px ;
+      margin: 0px ;
+  }
+ //Required to cover the botton space
+ .item-md {
+      min-height: 2.0rem ;
+      padding: 0px ;
+  }   
+  /*
+ //Required to cover the botton space
+  .item-md .item-button {
+    min-height: 40px ;
+  }*/
+  
+  //Required to remove right space
+  .item-md.item-block .item-inner {
+    padding: 0px ;
+  }
+
+  //
+  .ksd-text {
+//    font-family: "latoregular" ;
+    font-size: 17px ;
+    color: black ;// #FA0505 ;
+//    padding-right: 20px ;
+  }
+
+  //OK Button Color & Size
+  span {
+//    font-family: "latolight" ;
+    color: black ;
+    font-size: 18px ;
+    text-transform: none; 
+  }
+
+//   .grid-position {
+//     height: 60%; // change this to make it 100 percent
+//     width: 80% ;
+//     justify-content: center;
+//   }
+
+  .warning {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      
+      background: url(../assets/img/ico_warning.svg) no-repeat ; 
+      background-position-x: center ;
+      width: 80px;
+      height: 35px;
+      align-items: center ;
+  //   margin: 20px auto 0 auto;
+  }
+
+}

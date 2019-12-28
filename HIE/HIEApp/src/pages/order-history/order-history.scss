@@ -1,0 +1,91 @@
+page-order-history {
+  .ksd-card {
+    background-color: #F7F7F7;
+  }
+
+  .searchbar-md {
+    padding: 0px ;
+  }
+
+  ion-item {
+    max-height: 2.0rem ;
+  }
+
+  .ksd-date {
+   // font-family: 'latoregular' ;
+    font-size: 12px ;
+    background-color: white ;
+    color: black ;
+    padding-left: 15px ;
+    padding-top: 20px ;
+    padding-bottom: 5px ;
+   }
+
+  .ksd-padding {
+    padding:0px ;
+    padding-top: 1px ;
+//    padding-left: 10px ;
+    padding-bottom: 10px ;
+    background-color: inherit ;
+    color: black ;
+  }
+
+ .ksd-time {
+ //   font-family: 'latoregular' ;
+//    font-family: 'Lato' ;
+    font-size: 12px ;
+    color: #050505 ;
+    padding-left: 10px ;
+//    padding-top: 10px ;
+   }
+
+  .ksd-details {
+    
+    font-family: 'Lato' ;
+    font-size: 15px ;
+    background-color: inherit ;
+    color: #050505 ;
+    padding: 0px ;
+    padding-left: 15px ;
+//    margin: 0px ;
+//    margin-left: 10px ;
+  }
+
+  .ksd-order-number {
+ //   font-family: 'latoregular' ;
+    font-size: 12px ;
+    color: black ;
+  }
+
+  .ksd-name {
+ //   font-family: 'latoregular' ;
+    font-size: 12px ;
+     color:  #00D4AA ;
+  }
+
+  .ksd-spacer {
+    padding-top: 5px ;
+  }
+
+  .ksd-spacer-1 {
+    background-color: #F7F7F7;
+    padding-top: 26px ;
+  }
+
+  .ksd-back-1 {
+    background-color:#E4FCF7 ;
+  }
+  .ksd-back-2 {
+    background-color:#FFE5E5 ;
+  }
+
+    .ksd-round-button {
+//    font-family: "latolight" ;
+//    font-size: 11px ;
+    width: 50px ;
+    padding-right: 10px ;
+//    height: 20px ;
+//    color: black ;
+  }
+
+}

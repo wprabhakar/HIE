@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="hie-menu" (click)="go2Search()"></ion-icon>
+    </button>
+    <!--<button ion-button menuToggle>
+      <ion-icon name="hie-back-arrow-black" (click)="go2Search()"></ion-icon>
+    </button>-->
+    <ion-title text-center>Search result</ion-title>
+    <!--<ion-buttons end>
+      <cart-indicator (wasClicked)="openCart()"></cart-indicator>
+      <button (click)="go2Search()">S</button>
+    </ion-buttons>-->
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="bLoaded">
+    <!--<div>
+     <p  class="ksd-header">118 results!<br>Western cuisine to Tampines location</p>
+    <hr/>
+  </div>-->
+    <ion-item no-padding no-lines>
+    <div class="ksd-spacer"></div>
+    </ion-item>
+    <div *ngIf="oItems.length == 0">
+      <p class="ksd-no-result">{{sNoResults}}</p>
+    </div>
+    <ion-grid *ngFor="let o of oItems">
+      <ion-row item-content no-padding (click)="onMerchantClick(o)">
+        <ion-col col-3 class="ksd-image-width" no-padding>
+          <img [src]="oAPIService.buildImageURL(o,-1)" class="ksd-image">
+        </ion-col>
+        <ion-col col-6 class="ksd-padding">
+          <ion-row  no-padding>
+            <ion-col no-padding class="ksd-merchant">{{o.NAME}}
+            </ion-col>
+          </ion-row>
+          <ion-row class="ksd-align-bottom" no-padding>
+            <ion-col no-padding>
+              <p class="ksd-cuisine" no-padding>{{o.CUISINES}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-3>
+          <p class="ksd-discount" no-padding>{{o.RATE}}% OFF</p>
+          <p class="ksd-days" no-padding>ORDER {{o.ADVANCE_DAYS}} DAYS EARLY</p>
+        </ion-col>
+      </ion-row>
+      <ion-row no-padding>
+        <ion-col no-padding>
+          <hr>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

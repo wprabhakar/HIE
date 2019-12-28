@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="hie-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Order</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content text-center padding>
+  <div no-padding *ngIf="bLoaded">
+    <div class="ksd-spacer"></div>
+    <ion-card class="incoming-order" (click)="onIncomingOrder()" padding style="padding-bottom: 0px">
+      <div style="vertical-align: center">
+        <div class="ksd-number">{{oItem.INCOMING_ORDER}}</div>
+        <div class="ksd-text">Incoming order</div>
+      </div>
+    </ion-card>
+    <div class="ksd-spacer-1"></div>
+
+    <ion-card class="confirmed-order" (click)="onConfirmedOrder()" padding style="padding-bottom: 0px">
+      <div style="vertical-align: center">
+        <div class="ksd-number-black">{{oItem.CONFIRMED_ORDER}}</div>
+        <div class="ksd-text-black">Confirmed order<br></div>
+      </div>
+    </ion-card>
+    <div class="ksd-spacer-1"></div>
+    <ion-card class="history-order" (click)="onHistoryOrder()" padding style="padding-bottom: 0px">
+      <div style="vertical-align: center">
+        <div class="ksd-number">{{oItem.HISTORY_ORDER}}</div>
+        <div class="ksd-text">History order<br></div>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

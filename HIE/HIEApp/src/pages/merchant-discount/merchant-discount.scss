@@ -1,0 +1,153 @@
+page-merchant-discount {
+  .background-image {
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+//    height: 50%;
+    background-blend-mode: multiply;
+    height: 128px ;
+    width: 100% ;
+}
+
+.ksd-review {
+  font-size: 8px ;
+//  color: #00D4AA;  
+  color: #009900;  
+  background-color: inherit ;
+  letter-spacing: 2px ;
+  text-decoration: underline;
+}
+
+.ksd-name-review {
+  background-color: lightgray ;
+}
+
+//   .background-image {
+//     background-image: url('');
+//     background-size: cover;
+//     background-position: center;
+//     height: 80px;
+// //    background-blend-mode: multiply;
+// }
+
+/*
+  .ksd-header {
+//    font-size: 100% ;
+    color: grey ;
+    margin: 5px ;
+    padding: 15px ;
+  }
+*/
+    .background-image {
+        background-image: url(https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950);
+        background-size: cover;
+        background-position: center;
+//        height: 50vw;
+    }
+ 
+    .main-content {
+        padding: 0px;
+        margin:0px ;
+        background-color: white;
+  //      position: absolute;
+    }
+.ksd-timepicker {
+  background-image: none;
+  background-color: white ;
+  padding-left: 10px ;
+}
+
+// .ksd-image {
+//     height:80px ;
+//     padding: 10px ;
+//     width: 80px ;
+//}
+  .ksd-title {
+    font-size: 16px ;
+    background-color: inherit ;
+    color: #3D414A ;
+    padding-left: 5px ;
+    padding-top: 10px ;
+    margin-top: 0px ;
+  }
+
+    .ksd-image {
+    width: 70px ;
+    height:90px ;  //70 + padding-top + padding-bottom
+    padding: 0px ;
+    padding-top: 10px ;
+    padding-bottom: 10px ;
+//    margin-left:0px ;
+//    padding-top: 0px ;
+}
+  .ksd-discount{
+    margin-left: 0px ;
+  }
+
+//   .ksd-image-width {
+//     padding:0px ;
+//     max-width: 80px ;
+//     max-height: 80px ;
+// //    padding-top: 3px ;
+// //    padding-bottom: 3px ;
+//   }
+
+  .ksd-description {
+    color: lightgrey ;
+    font-size: 14px ;
+  }
+
+  .ksd-info {
+    font-size: 12px ;
+    color: #7C7E81 ;
+    padding-top: 8px ;
+    padding-bottom: 8px ;
+  }
+  .ksd-discount{
+    padding-top: 10px ;
+    color: #FF8A41 ;
+  }
+
+//Working
+//$label-md-text-color: blue ;
+.item-multi-picker .label-md {
+//  color: $label-md-text-color;
+  color: green ;
+  background-color: yellow ;
+  //lightgrey ;
+}
+//Working
+.multi-picker-text {
+    //The text shown after selection
+//    background-color: red ;
+    color: black ;
+}
+
+ion-multi-picker {
+  text-align: center ;
+}
+ion-item-divider {
+  padding:0px ;
+  margin: 0px ;
+}
+
+  .ksd-days {
+    font-size: 10px ;
+    margin: 0px ;
+//    margin-left: 10px ;
+//   font-size: 70% ;
+    color: grey ;
+    // margin: 0px ;
+    // padding: 0px ;
+  }
+// span {
+//   color: red;
+// }
+
+.required:after {
+  color: red;
+  content: '**';
+}
+}
+//$datetime-md-placeholder-color: black ;
+

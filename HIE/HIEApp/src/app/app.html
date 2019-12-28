@@ -1,0 +1,113 @@
+<ion-menu [content]="content">
+
+  <ion-header>
+    <ion-navbar>
+      <ion-buttons left>
+        <button ion-button icon-only menuToggle>
+        <ion-icon name="close"></ion-icon>
+      </button>
+      </ion-buttons>
+      <ion-title text-center>My account</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content no-padding>
+    <div no-padding *ngIf="this.oLoginService.getUserType() == 'C'">
+      <ion-list no-padding>
+        <div no-padding *ngFor="let p of customerPages" (click)="openPage(p)">
+          <ion-item no-lines no-padding item item-icon-right menuClose (click)="openPage(p)">
+            <ion-row *ngIf="p.padtop === 'Y'">
+              <ion-col class="ksd-big-spacer">
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="p.padtop === 'N'">
+              <ion-col class="ksd-small-spacer">
+              </ion-col>
+            </ion-row>
+            <ion-row no-padding>
+              <ion-col no-padding col-11 class="ksd-padding">
+                <!--<div [class]="p.style">-->
+                <div [class]="getBgColor(p.title)">
+                  {{p.title}}
+                </div>
+              </ion-col>
+              <ion-col no-padding col-1 class="ksd-right-arrow">
+                <ion-icon name="ios-arrow-forward"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item no-lines no-padding item item-icon-right>
+            <ion-row>
+              <ion-col class="ksd-big-spacer">
+              </ion-col>
+            </ion-row>
+            <ion-row no-padding>
+              <ion-col no-padding col-11 class="ksd-padding">
+                <!--<div [class]="p.style">-->
+                <div [class]="getBgColor(p?.title)" (click)="onExitApp()">
+                  Logout
+                </div>
+              </ion-col>
+              <ion-col no-padding col-1 class="ksd-right-arrow">
+                <ion-icon name="ios-arrow-forward"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </div>
+      </ion-list>
+    </div>
+    <div *ngIf="this.oLoginService.getUserType() == 'M'">
+      <ion-list>
+        <div *ngFor="let p of merchantPages">
+          <ion-item no-lines no-padding item item-icon-right menuClose (click)="openPage(p)">
+            <ion-row *ngIf="p.padtop === 'Y'">
+              <ion-col class="ksd-big-spacer">
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="p.padtop === 'N'">
+              <ion-col class="ksd-small-spacer">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col width-90 class="ksd-padding">
+                <div [class]="getBgColor(p.title)">
+                  {{p.title}}
+                </div>
+              </ion-col>
+              <ion-col width-10 class="ksd-right-arrow">
+                <ion-icon name="ios-arrow-forward"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item no-lines no-padding item item-icon-right menuClose>
+            <ion-row>
+              <ion-col class="ksd-big-spacer">
+              </ion-col>
+            </ion-row>
+            <ion-row no-padding>
+              <ion-col no-padding col-11 class="ksd-padding">
+                <!--<div [class]="p.style">-->
+                <div [class]="getBgColor(p?.title)" (click)="onExitApp()">
+                  Logout
+                </div>
+              </ion-col>
+              <ion-col no-padding col-1 class="ksd-right-arrow">
+                <ion-icon name="ios-arrow-forward"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </div>
+      </ion-list>
+    </div>
+
+    <div class="ksd-user-info">Logged as {{this.oLoginService.getEmail()}}
+    </div>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,16 @@
+<!-- <ion-row  no-padding>
+  <ion-col> -->
+    <!--<ion-row syte="padding:0px">
+      <ion-col syte="padding:0px">
+        <ion-label>Cuisine</ion-label>
+      </ion-col>
+    </ion-row>-->
+    <ion-item no-padding>
+      <ion-label color="#ffffff" floating>Food Type</ion-label>
+      <ion-select required read-only="readonly" (ionChange)="onSelected($event)" multiple>
+        <ion-option *ngFor="let o of oItems" selected="{{o.checked}}">{{o.Name}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+  <!-- </ion-col>
+</ion-row> -->

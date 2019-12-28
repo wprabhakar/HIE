@@ -1,0 +1,63 @@
+page-register {
+  ion-list {
+    padding-bottom: 0px ;
+    margin-bottom: 0px ;
+  }
+  ion-row {
+    padding-bottom: 32px ;
+  }
+  ion-label {
+    padding-top: 12px ;
+  }
+  ion-input {
+    margin: 0px ;
+    padding-left: 0px ;
+//    background-color: blue ;
+  }
+  textarea {
+    background-color: white ;
+  }
+  .ksd-address {
+    padding-top: 14px ;
+  }
+  .ksd-list-padding {
+    padding:0px ;
+    padding-left: 8px ;
+    padding-right: 8px ;
+  }
+  // .ksd-left-padding {
+  //   padding-left: 20px ;
+  // }
+  ion-icon:before {
+    font-size: 32px !important;
+    padding-right: 10px ;
+    color: #3990D9;
+    margin-top: 2px ;
+  }
+  .ksd-terms {
+    font-family: 'latolight' ;
+    font-size: 14px ;
+    color: black ;
+    padding: 0px ;
+    padding-right: 25px ;
+    padding-left: 25px ;
+    padding-bottom: 10px ;
+  }
+  .ksd-create {
+    font-size: 17px ;
+    color: #606060 ;
+    padding: 0 px ;
+    padding-top: 14px ;
+    padding-bottom: 14px ;
+  }
+  .ksd-spacer-top {
+    padding-top: 56px ;
+  }
+  .ksd-spacer {
+    padding-top: 32px ;
+    padding-bottom:0px ;
+  }
+  .ksd-spacer-1 {
+    padding-top: 10px ;
+  }
+}

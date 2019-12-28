@@ -1,0 +1,86 @@
+<ion-content ksd-header *ngIf="bLoaded">
+  <div class="background-image" [style.backgroundImage]="'url(' + getImageURL(oMerchant) + ')'">
+    <button ion-button icon-only (click)="goBack()" class="top-left-button-2">
+        <ion-icon name="close"></ion-icon>
+        <!-- <ion-icon name="hie-close-cross-black-circle"></ion-icon> -->
+      </button>
+  </div>
+  <div class="main-content" *ngIf="bLoaded">
+    <!--<div class="background-image" [style.backgroundImage]="'url(' + getImageURL(oMerchant) + ')'">
+      <button ion-button icon-only class="top-button" (click)="goBack()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </div>-->
+    <!-- <ion-item no-lines></ion-item> -->
+    <div no-padding class="ksd-name-review">
+      <ion-row style="padding-top:7px">
+        <ion-col col-2>
+          <!-- <ion-icon align-center name="close"></ion-icon> -->
+        </ion-col>
+        <ion-col col-8>
+          {{oMerchant.NAME}}<br>{{oMerchant.ADDRESS}}
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button outline clear full (click)="onReview()" class="ksd-review">REVIEWS</button>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div style="padding:20px; padding-top:0px">
+      <!-- <ion-item-divider></ion-item-divider> -->
+      <div>
+        <button ion-button clear class="ksd-collection">
+          <ion-icon name="hie-calendar"></ion-icon>
+          <ion-datetime no-padding pull-left placeholder='Collection date' displayFormat="DD-MMM-YYYY" min="{{oMinDate}}" max="{{oMaxDate}}" pickerFormat="DD MMM YYYY" [(ngModel)]="collectionDate" (ionChange)="dateChanged()"></ion-datetime>&nbsp;&nbsp;<span class="required"></span>
+        </button>
+        <ion-item-divider></ion-item-divider>
+        <!--</div>
+      <div class="no-padding">-->
+        <button ion-button clear class="ksd-collection">
+        <ion-icon name="hie-time"></ion-icon>
+        <ion-multi-picker text-left class="ksd-timepicker" item-content [multiPickerColumns]="simpleColumns" [(ngModel)]="collectionTime"></ion-multi-picker><span class="required"></span>
+      </button>
+      </div>
+      <ion-item-divider></ion-item-divider>
+      <div class="ksd-info" no-padding>
+        Get higher discount rates by setting your collection date far
+      </div>
+      <ion-item-divider></ion-item-divider>
+      <!--<ion-item-divider></ion-item-divider>-->
+      <div no-padding *ngFor="let o of oItems">
+        <!--<ion-item no-padding> -->
+        <ion-row no-padding (click)="onItemClick(o)">
+          <ion-col no-padding col-3>
+            <img class="ksd-image" [src]="getImageURL(o)" />
+          </ion-col>
+          <ion-col col-6>
+            <p class="ksd-title">{{o.TITLE}}</p>
+          </ion-col>
+          <ion-col no-padding col-3>
+            <p class="ksd-discount" no-padding>{{o.RATE}}% OFF</p>
+            <p class="ksd-days" text-wrap no-padding>ORDER {{o.ADVANCE_DAYS}} DAYS EARLY</p>
+          </ion-col>
+        </ion-row>
+        <ion-item-divider></ion-item-divider>
+        <!--<ion-row class="no-padding">
+          <ion-col class="no-padding">
+            <hr class="no-padding">
+          </ion-col>
+        </ion-row>-->
+        <!--</ion-item>-->
+      </div>
+      <ion-item no-lines></ion-item>
+      <ion-item no-lines></ion-item>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-row class="footer-row" ion-button (click)="openCart()">
+    <ion-col class="footer-col-left">
+      {{oService.calcTotalQty()}}
+    </ion-col>
+    <ion-col class="footer-col-center">
+      View cart
+    </ion-col>
+    <ion-col class="footer-col-right"> {{oService.calcTotalSum() |number:'1.2'}}</ion-col>
+  </ion-row>
+</ion-footer>

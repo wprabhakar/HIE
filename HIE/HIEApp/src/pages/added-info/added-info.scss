@@ -1,0 +1,52 @@
+page-added-info {
+
+  // .ksd-spacer {
+  //   padding-top: 178px ;
+  // }
+  // ion-grid {
+  //   background-color: black ;
+  //   height: 100% ;
+  //   width: 100% ;
+  // }
+
+  div {
+    background-color: black ;
+    color: white ;
+  }
+
+  .center-image {
+    padding-top: 178px ;
+    text-align: center ;
+  }
+  //
+  .ksd-text {
+ //   font-family: "latoregular" ;
+    font-size: 17px ;
+    padding-top: 32px ;
+    padding-bottom: 80px ;
+    text-align: center ;
+//    color: black ;// #FA0505 ;
+//    padding-right: 20px ;
+  }
+
+  //OK Button Color & Size
+  // span {
+  //   color: black ;
+  //   font-size: 20px ;
+  //   text-transform: none; 
+  // }
+
+  .info {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      
+      background: url(../assets/img/ico_tick_green.svg) no-repeat ; 
+//      background-position-x: center ;
+      width: 100%;
+      height: 100%;
+      align-items: center ;
+  //   margin: 20px auto 0 auto;
+  }
+
+}

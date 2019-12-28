@@ -1,0 +1,238 @@
+
+page-add-menu {
+.ksd-spacer-top {
+    padding-top: 30px ;
+}
+.ksd-spacer-1 {
+    padding-top: 46px ;
+}
+.ksd-upload-button {
+    font-family: "latoregular" ;
+    font-size: 10px ;
+    color: #606060;
+}
+ion-icon:before {
+    font-size: 24px !important;
+    padding-right: 10px ;
+//    color: #3990D9;
+//    margin-top: 2px ;
+}
+.image-container:hover .after {
+    display: block;
+    background: rgba(0, 0, 0, .6);
+}
+
+ion-label {
+    font-size: 14px ;
+    font-family: "latoregular" ;
+    color: #7C7E81 ;
+}
+
+//TO Test
+ion-label-selected {
+    font-size: 16px ;
+    font-family: "latoregular" ;
+    color: black ;
+}
+
+/*
+.item-input .label-md, .item-select .label-md, .item-datetime .label-md
+{
+    font-size: 16px ;
+    font-family: "latoregular" ;
+    color: #7C7E81 ;
+    // color: yellow ;
+    // background-color: green ;
+}
+.input-has-focus .label-md[floating]
+{
+    font-size: 14px ;
+    font-family: "latoregular" ;
+    color: #7C7E81;
+    border-color: #FF4070;
+}
+*/
+
+.ksd-select {
+  border: 0px ;
+//  border-boxing: none ;
+  margin: 0px ;
+  text-align: left ;
+  min-height: 4.0rem; 
+  max-height: 4.0rem; 
+}
+/*
+.toggle input:checked + .track {
+    background-color: #8577b5;
+    border-color: #8577b5;
+}
+*/
+
+.ksd-active-label {
+    font-size: 16px ;
+    font-family: "latoregular" ;
+    padding-left: 20px ;
+    padding-top: 10px ;
+    padding-bottom: 10px ;
+}
+
+.select-md {
+    margin: 0px ;
+    padding: 0px ;
+}
+
+.label-heading {
+  padding:0px; padding-left: 20px ;
+}
+
+.ksd-upload-button {
+    background-color: #FFDD55 ;
+    color: #606060;
+}
+
+.ksd-upload-text {
+    font-size: 14px ;
+    font-family: "latoregular" ;
+    background-color: inherit ;
+    vertical-align: text-top
+}
+
+/*  Uncomment these if upload should be displayed only during hover
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: 100% ;
+}
+.image-container .after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    color: #FFF;
+}
+.image-container:hover .after {
+    display: block;
+    background: rgba(0, 0, 0, .6);
+}
+
+.image-container .after .content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.image-container .after .zoom {
+    color: #EEE;
+    font-size: 48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -30px 0 0 -15px;
+    height: 40px;
+    width: 40px;
+}
+*/
+
+/*
+.toggle-text > .track {
+
+  width: auto;
+  padding-left: 25px;
+  padding-right: 25px;
+
+}
+
+.toggle-text .handle {
+  left: 7px;
+}
+
+.toggle-text .handle-text {
+  font-size: 24px;
+  color: white;
+
+  position: absolute;
+  top: -4px;
+  
+}
+
+.toggle-text .handle-text-false {
+  left: 36px;
+}
+
+.toggle-text input:checked + .track .handle {
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+  left: calc(100% - 60px);
+}
+.track-text {
+  line-height: 26px;
+  color: white;
+  font-size: 24px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+*/
+
+//https://jsfiddle.net/taditdash/72XyL/
+div.show-image {
+    position: relative;
+    float:left;
+    margin:5px;
+}
+div.show-image:hover img{
+    opacity:0.5;
+}
+div.show-image:hover div {
+    display: block;
+    padding-bottom: 20px ;
+}
+div.show-image div {
+    position:absolute;
+    display:none;
+}
+div.show-image div.update {
+    vertical-align: bottom ;
+    width: 100% ;
+//    top:0;
+//    left:0;
+}
+// div.show-image input.delete {
+//     top:0;
+//     left:79%;
+// }
+
+
+// .ng-valid[required], .ng-valid.required  {
+//     border-left: 5px solid #42A948; /* green */
+//   }
+//   .ng-invalid:not(form)  {
+//     border-left: 5px solid #a94442; /* red */
+//   }
+
+
+.ksd-valid {
+    color: black;
+}
+.ksd-invalid {
+    color: #FF0000;    
+}
+// ion-select:ng-valid {
+//     color: gray;
+//   }
+// ion-select:ng-invalid {
+//     color: #FF0000;
+//   }
+//   ion-option[value=""][disabled] {
+//     display: none;
+//   }
+//   ion-option {
+//     color: black;
+//   }
+//   :invalid { outline: solid red 2px; }
+//   .input-has-value { color: #FF0000;}
+}
+
+
+

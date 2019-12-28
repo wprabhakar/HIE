@@ -1,0 +1,42 @@
+<ion-header align-title="center">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="hie-menu"></ion-icon>
+    </button>
+    <ion-title text-center>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <div no-padding *ngIf="bLoaded">
+    <div no-padding class="ksd-slides" *ngIf="oSlides?.length > 0">
+      <ion-slides pager loop autoplay="4000" class="ksd-slides" #mySlider>
+        <ion-slide *ngFor="let o of oSlides">
+          <img [src]="oAPIService.buildImageURL(o,0,'')" style="width: 100%">
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+  <div class="ksd-spacer"></div>
+  <ion-grid no-padding>
+    <ion-item no-lines no-padding>
+      <select-region></select-region>
+    </ion-item>
+    <div class="ksd-field-spacer"></div>
+    <ion-item class="ksd-select" no-lines no-padding>
+      <select-cuisine [current]="getCuisines()"      ></select-cuisine>
+      <!-- <select-cuisine (select)="onCuisineChange($event)"></select-cuisine> -->
+    </ion-item>
+    <ion-item no-lines *ngIf="!bIsFormValid">
+      <div class="alert alert-danger">
+        Please select Location and/or Food Type
+      </div>
+    </ion-item>
+    <div class="ksd-spacer-1"></div>
+    <ion-row>
+      <ion-col>
+        <button ion-button full [disabled]="!bIsFormValid" (click)="onSearch()">Search</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,9 @@
+node_modules/.bin/fly
+node_modules/.bin/mkdirp
+node_modules/.bin/ncp
+node_modules/.bin/nopt
+node_modules/.bin/rimraf
+node_modules/.bin/semver
+node_modules/.bin/user-home
+node_modules/.bin/which
+tmp

@@ -1,0 +1,74 @@
+<!--<ion-header>
+  <ion-navbar style="padding:0px">
+    <ion-title style="padding:0px">
+      <lazy-image class="expanded-image" src="{{getImageURL(oMerchant)}}"> </lazy-image>
+      <span>{{oMerchant.NAME}}</span></ion-title>
+  </ion-navbar>
+
+</ion-header>-->
+
+<ion-content no-header>
+  <!--<div class="ksd-spacer"></div>-->
+  <div class="background-image" [style.backgroundImage]="'url(' + getImageURL(oItem) + ')'">
+      <!-- class="top-button"  -->
+    <button ion-button icon-only clear  class="top-left-button-2" (click)="goBack()">
+        <ion-icon name="close"></ion-icon>
+    </button>
+  </div>
+  <!--<div class="ksd-image">
+    <img src="{{getImageURL(oItem)}}" width="100%" height="30%">
+    <button ion-button class="top-button" (click)="goBack()">
+        <ion-icon name="close"></ion-icon>
+    </button>
+  </div>-->
+  <ion-item>
+    <ion-row class="no-padding">
+      <ion-col>
+        <div class="ksd-name">{{oItem.TITLE}}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="no-padding">
+      <ion-col text-wrap>
+        <div text-wrap class="ksd-description">{{oItem.DESCRIPTION}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item>
+    <ion-row no-padding>
+      <ion-col>
+        <div class="ksd-discount">{{(+oItem.DISCOUNT * 100)}}% OFF</div>
+        <div class="ksd-days">Order {{oItem.DAYS}} days early</div>
+      </ion-col>
+      <ion-col>
+        <div text-right class="ksd-usual-price">${{oItem.USUAL_PRICE | number:'1.2' }} </div>
+        <div text-right class="ksd-price">${{getUnitPrice() |number:'1.2' }}</div>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <div class="ion-segment">
+    <ion-row>
+      <ion-col no-padding col-4>
+        <div class="ksd-minus" *ngIf="oItem.qty > 1" (click)="adjustItemQty(oItem,-1)">-</div>
+      </ion-col>
+      <ion-col col-4>
+        <div class="ksd-qty">{{oItem.qty}}</div>
+      </ion-col>
+      <ion-col no-padding col-4>
+        <div class="ksd-plus-minus" (click)="adjustItemQty(oItem,1)">+</div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-row class="footer-row" ion-button (click)="add2Cart(oItem)">
+    <ion-col class="footer-col-left">
+      {{oItem.qty}}
+    </ion-col>
+    <ion-col class="footer-col-center">
+      Add {{oItem.qty}} to Cart
+    </ion-col>
+    <ion-col class="footer-col-right ksd-right-padding">
+      <div>${{getAmount()|number:'1.2'}}</div>
+    </ion-col>
+  </ion-row>
+</ion-footer>

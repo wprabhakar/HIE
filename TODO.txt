@@ -1,0 +1,65 @@
+CA Link : https://ca-test.adyen.com/ca/ca/login.shtml
+Account	: HIEarly 
+User Name : admin
+Password : H@veitearly2017
+
+Helpdesk: https://support.adyen.com/index.php?/Default
+
+Merchant Logo ( Insert in DB manually & Populate ), prepare FAQ
+After Add Menu / Edit Menu.  Show a dialog box with a button to return to Menu List
+
+Android change password behavior to be fixed
+
+brew install caskformula/caskformula/inkscape
+
+
+Change the naviation
+https://alexdisler.com/2016/04/15/remove-page-modal-from-navigation-stack-ionic-2/
+
+
+
+$ ionic cordova plugin add cordova.plugins.diagnostic
+$ npm install --save @ionic-native/diagnostic
+
+//https://ionicframework.com/docs/native/facebook/
+cordova plugin add cordova-plugin-facebook4 --save --variable APP_ID="146887799193080" --variable APP_NAME="HaveItEarly"
+npm install --save @ionic-native/facebook
+npm uninstall --save @ionic-native/card-io
+ionic cordova plugin remove card.io.cordova.mobilesdk
+ionic cordova plugin add cordova.plugins.diagnostic
+ionic cordova plugin add cordova-plugin-camera
+ionic cordova plugin add cordova-plugin-background-mode
+ionic cordova plugin add cordova-plugin-calendar
+ionic cordova plugin add cordova-plugin-console
+ionic cordova plugin add cordova-plugin-file-transfer
+#ionic cordova plugin add cordova-plugin-file
+ionic cordova plugin add cordova-plugin-filepath
+ionic cordova plugin add cordova-plugin-network-information
+ionic cordova plugin add cordova-plugin-splashscreen
+ionic cordova plugin add cordova-plugin-statusbar
+ionic cordova plugin add cordova-plugin-whitelist
+ionic cordova plugin add cordova-plugin-whitelist
+ionic cordova plugin add ionic-plugin-keyboard
+ionic cordova plugin add 
+ionic cordova plugin add 
+ionic cordova plugin add 
+
+#cordova-plugin-device
+
+<div class="required">
+    <label>Name:</label>
+    <input type="text">
+</div>
+
+<style>
+    .required:after { content:" *"; }
+</style>
+----------
+.required label {
+    font-weight: bold;
+}
+.required label:after {
+    color: #e32;
+    content: ' *';
+    display:inline;
+}

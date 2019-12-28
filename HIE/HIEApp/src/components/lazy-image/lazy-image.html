@@ -1,0 +1,3 @@
+  <div width-50 [ngClass]="{ 'placeholder': hidden }">
+      <img [ngClass]="{ 'active': !hidden }" [src]="src" (load)="load()" (error)="error()" width="16" height="16"/>
+  </div>

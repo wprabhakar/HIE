@@ -1,0 +1,49 @@
+page-order-summary {
+  .ksd-spacer {
+    margin-top: 36px ;
+  }
+  .ksd-spacer-1 {
+    margin: 0px ;
+//    margin-top: 5px ;
+    padding: 5px ;
+  }
+  .ksd-number {
+    font-size: 42px ;
+//    font-family: 'latoregular';
+    color: white ;
+  }
+  .ksd-number-black {
+    font-size: 42px ;
+//    font-family: 'latoregular';
+    color: black ;
+  }
+  .ksd-text {
+    margin: 0px ;
+    font-size: 15px ;
+//    font-family: 'latolight';
+    color: white ;
+    padding-bottom: 20px ;
+  }
+  .ksd-text-black {
+    font-size: 15px ;
+  //  font-family: 'latolight';
+    color: black ;
+    padding-bottom: 20px ;
+  }
+  .incoming-order {
+    background-color: #00D4AA ;
+    vertical-align: center ;
+  }
+  .confirmed-order {
+    font-size: 15px ;
+  //  font-family: 'latolight';
+    background-color: #FFDD55 ;
+    vertical-align: center ;
+  }
+  .history-order {
+    font-size: 15px ;
+//    font-family: 'latolight';
+    background-color: #606060 ;
+    vertical-align: center ;
+  }
+}

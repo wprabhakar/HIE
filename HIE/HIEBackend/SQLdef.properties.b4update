@@ -1,0 +1,171 @@
+#Login
+#post./api/:lid/dbLogin=select ID, Type from Users where email = '@EMAIL@' and password = '@PASSWORD@' and isActive = 'Y'
+
+sql.auth=select ID UID, Type, LoginType, Email from Users where lower(email) = lower('@email@') and password = '@password@' and isActive = 'Y'
+sql.auth.role=TYPE
+sql.auth.id=UID
+
+sql.fbauth=select ID UID, Type, 'F' from fblogin ( '@email@', '@name@', '@id@' )
+sql.auth.role=TYPE
+sql.auth.id=UID
+
+sql.resetPassword=select * from resetPassword ( '@EMAIL@', '@NEW_PASSWORD@' )
+#from users where Email = '@EMAIL@'
+#
+
+post./api/:lid/log=select 1 from RDB$DATABASE
+
+#Merchant Functions
+
+#--- START Tested
+
+post../api/:lid/product/add=insert into Product ( Users_ID, Title, Description, Usual_Price, IsActive ) values ( @UID@, '@TITLE@', '@DESCRIPTION@',  @USUAL_PRICE@, '@ISACTIVE@' ) returning ID
+Roles.post../api/:lid/product/add=M
+
+post../api/:lid/product/:pid/updateImage=update  Product set IMAGE_URL = '@IMAGE_URL@' where ID = @:pid@
+Roles.post../api/:lid/product/add=M
+
+post../api/:lid/product/:pid/discount/add=insert into Discount ( Product_ID, Rate, AdvanceDays ) values ( @:pid@, @RATE@, @ADVANCEDAYS@ )
+Roles.post../api/:lid/product/:pid/discount/add=M
+
+get../api/:lid/products=select * from Product where Users_ID = @UID@
+Roles.get../api/:lid/products=M
+
+get../api/:lid/product/:pid=select * from Product where Users_ID = @UID@ and ID = @:pid@
+Roles.get../api/:lid/product/:pid=M
+
+get../api/:lid/product/:pid/discounts=select * from Discount where Users_ID = @UID@ and Product_ID = @:pid@ where isDeleted = 'N'
+Roles.get../api/:lid/product/:pid/discounts=M
+
+#get../api/:lid/merchant/cuisines=select cuisine from MerchantCuisine where Users_ID = @UID@
+
+get../api/:lid/merchant=select ID, Name, IMAGE_URL, Region, Address, Outlet_Phone, Email, (select CAST(LIST(CUISINE, ',') AS VARCHAR(96)) CUISINES from MerchantCuisine m where m.Users_ID = Users.ID) from Users where Users.ID =  @UID@
+Roles.get../api/:lid/merchant=M
+
+get../api/:lid/product/:pid/discounts=select * from Discount where Product_ID = @:pid@ and Users_ID = @UID@ and IsDeleted = 'N'
+Roles.get../api/:lid/product/:pid/discounts=C, M
+
+post../api/:lid/product/:pid/discounts/delete=update Discount set isDeleted = 'Y', IsActive = 'N' where Product_ID = @:pid@ and  Users_ID = @UID@
+Roles.post../api/:lid/product/:pid/discounts/delete=M
+
+post../api/:lid/product/:pid/update=update Product set  Title = '@TITLE@', Description = '@DESCRIPTION@',USUAL_Price = @USUAL_PRICE@, IsActive = '@ISACTIVE@' where ID = @:pid@ and Users_ID = @UID@ 
+Roles.post../api/:lid/product/:pid/update=M
+
+get../api/:lid/profile = select u.ID, u.NAME, u.LOCATION, (select CAST(LIST(CUISINE, ',') AS VARCHAR(96)) FOOD_TYPE from MerchantCuisine m where m.Users_ID = u.ID), u.EMAIL, u.MOBILE, u.OUTLET_PHONE, u.PASSWORD, u.ADDRESS from Users u where ID = @UID@
+Roles.get../api/:lid/profile=M
+
+post../api/:lid/profile/update=update Users set name='@NAME@', email='@EMAIL@', mobile='@MOBILE@', OUTLET_PHONE='@OUTLET_PHONE@', address='@ADDRESS@' where ID= @UID@
+Roles.post../api/:lid/profile/update=M
+
+get../api/:lid/myprofile = select u.NAME, u.EMAIL, u.MOBILE, u.PASSWORD, u.ADDRESS, u.LoginType from Users u where ID = @UID@
+Roles.get../api/:lid/myprofile=C
+
+post../api/:lid/myprofile/update=update Users set name='@NAME@', email='@EMAIL@', mobile='@MOBILE@', address='@ADDRESS@' where ID= @UID@
+Roles.post../api/:lid/myprofile/update=C
+
+post../api/:lid/changepassword=update Users set PASSWORD = '@PASSWORD@' where ID = @UID@ and PASSWORD = '@CURRENT_PASSWORD@' returning ID
+Roles.post../api/:lid/changepassword=C, M
+
+post../api/:lid/changefbpassword=update Users set PASSWORD = '@PASSWORD@' where ID = @UID@ and LoginType = 'F' returning ID
+Roles.post../api/:lid/changefbpassword=C, M
+
+
+#Customer
+get../api/:lid/slides=select * from Slides
+Roles.get../api/:lid/slides=C
+
+post../api/:lid/merchants=select DISTINCT ID, Name, IMAGE_URL, Region, (select CAST(LIST(CUISINE, ',') AS VARCHAR(4096)) CUISINES from MerchantCuisine m where m.Users_ID = Users.ID),(select max(rate) RATE from discount where Users_ID = Users.ID ) RATE,(select min(AdvanceDays) ADVANCE_DAYS from discount where RATE in ( select MAX(RATE) from Discount where Users_ID = Users.ID )) from Users,MerchantCuisine m  where Region like '@REGION@' and m.Users_ID = ID and m.Cuisine in ( @CUISINE@ ) and IsActive = 'Y'
+Roles.post../api/:lid/merchants=C
+
+get../api/:lid/merchant/:mid=select ID, Name, IMAGE_URL, Region, Address, Outlet_Phone, Email, (select CAST(LIST(CUISINE, ',') AS VARCHAR(96)) CUISINES from MerchantCuisine m where m.Users_ID = @:mid@) from Users where Users.ID =  @:mid@ 
+Roles.get../api/:lid/merchant/:mid=C
+
+get../api/:lid/products/:mid=select p.*, (select max(rate) RATE from discount where Users_ID = @:mid@ and Product_ID = p.ID and IsActive = 'Y' ) RATE,(select min(AdvanceDays) ADVANCE_DAYS from discount where RATE in ( select MAX(RATE) from Discount where Users_ID = @:mid@ and Product_ID = p.ID and Discount.ISACTIVE = 'Y' and Discount.IsDeleted = 'N')) from Product p where Users_ID = @:mid@ and p.IsActive = 'Y' order by rate desc
+Roles.get../api/:lid/products/:mid=C
+
+get../api/:lid/product/:mid/:pid=select * from Product where Users_ID = @:mid@ and ID = @:pid@
+Roles.get../api/:lid/product/:mid/:pid=C
+
+#Filter based on date
+get../api/:lid/products/:mid/:dt=select P_ID, RATE, ADVANCEDAYS ADVANCE_DAYS, p.* from FetchDiscounts ( @:mid@, '@:dt@' ), Product p where p.ID = P_ID
+Roles.get../api/:lid/products/:mid/:dt=C
+
+get../api/:lid/customer/orders=select transaction.ID, MUsers_ID, Name,  BookingRef, Extract(Year from PickupOn) || '-' || Extract(Month from PickupOn) || '-' || extract(Day from PickupOn) As PickupOn, PickupStart, PickupEnd, Customer_NAME, AmountPaid, Status from Transaction, Users where Users.ID = MUsers_ID and CUsers_ID = @:lid@ and STATUS != 'D' order by PickupOn desc, PickupStart desc, BookingRef asc
+Roles.get../api/:lid/customer/orders=C
+
+get../api/:lid/customer/orders_=select t.Transaction_ID, t.Quantity, t.Usual_Price, p.IMAGE_URL, t.DiscountedPrice, p.Title, CUSTOMER_Name from Transaction, TransactionDetails t, Product p, Users where t.Product_ID = p.ID and t.Transaction_ID = transaction.ID and transaction.CUsers_ID = Users.ID and t.Transaction_ID = @ID@
+
+# get../api/:lid/customer/orderdetails/:tid=select t.Transaction_ID, t.Quantity, t.Usual_Price, p.IMAGE_URL, t.DiscountedPrice, p.Title, CUSTOMER_Name from Transaction, TransactionDetails t, Product p, Users where t.Product_ID = p.ID and t.Transaction_ID = transaction.ID and transaction.CUsers_ID = Users.ID and t.Transaction_ID = @:tid@
+# Roles.get../api/:lid/customer/orderdetails/:tid=C,M
+
+
+get../api/:lid/customer/orderhistory=select Transaction.ID, MUsers_ID,  Users.Name,  BookingRef, Extract(Year from PickupOn) || '-' || Extract(Month from PickupOn) || '-' || extract(Day from PickupOn) As PickupOn, PickupStart, PickupEnd, Customer_NAME, AmountPaid, STATUS from Transaction, Users where Users.ID = MUsers_ID and CUsers_ID = @:lid@ and STATUS = 'D' order by Transaction.PickupOn desc, PickupStart desc, BookingRef desc
+
+Roles.get../api/:lid/customer/orderhistory=C
+
+
+
+get../api/:lid/customer/orderhistory_=select t.Transaction_ID, t.Quantity, t.Usual_Price, p.IMAGE_URL, t.DiscountedPrice, p.Title, CUSTOMER_Name from Transaction, TransactionDetails t, Product p, Users where t.Product_ID = p.ID and t.Transaction_ID = transaction.ID and transaction.CUsers_ID = Users.ID and t.Transaction_ID = @ID@
+
+get../api/:lid/customer/order/:tid=select ID, BookingRef, Customer_NAME, AmountPaid from Transaction where CUsers_ID = @:lid@
+# Roles.get../api/:lid/customer/order/:tid=C
+
+# get../api/:lid/customer/:tid/orderdetails=select Quantity, USUAL_Price, Product_ID, DiscountedPRICE from TransactionDetails where Transaction_ID = @:tid@ and CUsers_ID = @:lid@
+# Roles.get../api/:lid/customer/:tid/orderdetails=C
+
+#--- END Tested
+
+
+post./api/:lid/register=insert into Users ( name, email, password, mobile, address ) values ( '@NAME@', '@EMAIL@', '@PASSWORD@', '@MOBILE@', '@ADDRESS@')
+
+post./api/:lid/register/FB=select * from fblogin ( 'wpg1@37.com', 'abc' ) ;
+
+#Customer
+get./api/:lid/merchantsByName=select distinct Name from Users where isActive = 'Y' and Type ='M'
+get./api/:lid/merchantsByRegion=select distinct Region from Users where isActive = 'Y' and Type = 'M'
+
+post./api/:lid/discounts=select * from discount where isActive = 'Y'
+
+get./api/:lid/discount/:pid=select * from discount where isActive = 'Y'
+
+
+post../api/:lid/product/:pid/delete=update Product set isActive = 'N' where ID = @:pid@ and Users_ID = @UID@
+Roles.post../api/:lid/product/delete=M
+
+post../api/:lid/product/:pid/discount/delete=delete from Discount where Product_ID = @:pid@ and Users_ID = @UID@ and ID = @ID@ 
+Roles.post../api/:lid/product/:pid/discount/delete=M
+
+#post./api/:lid/review/:lid/:uid=insert into Feedback (Users_ID, Description, ForUser_ID) values (@:lid@ , '@description@', @:uid@) returning description, createdOn, ID
+
+
+#feedback / #review
+post./api/:lid/feedback/:lid/:uid=insert into Feedback (Users_ID, Description, ForUser_ID) values (@:lid@ , '@description@', @:uid@) returning description, createdOn, ID
+
+get./api/:lid/review/:uid=select description, NAME, Feedback.createdOn ts, current_timestamp, feedback.ID from feedback, Users u where u.ID = Users_ID and IsActive = 'Y' and ForUser_ID = @:uid@ order by Feedback.createdOn desc  
+
+get./api/:lid/feedback=select description, NAME, Feedback.createdOn ts, current_timestamp, feedback.ID from feedback, Users u where u.ID = Users_ID and ForUser_ID = 0 order by Feedback.createdOn desc  
+
+#get./api/:lid/feedback=select description, NAME, Feedback.createdOn ts, current_timestamp, feedback.ID from feedback, Users u where u.ID = Users_ID order by Feedback.createdOn desc  
+ 
+post./api/:lid/delete/feedback=delete from feedback where ID=@ID@ 
+
+#post../api/:lid/newprofile=insert into Users ( name, email, mobile,  password) values ('@NAME@','@EMAIL@', '@MOBILE@', '@office@', '@address@', '@PASSWORD@' ) returning ID
+#Roles.post../api/:lid/myprofile/update=C
+
+#post../api/:lid/myprofile/update=update Users set name='@NAME@', email='@EMAIL@', mobile='@MOBILE@', address='@ADDRESS@' where ID= @UID@
+#Roles.post../api/:lid/myprofile/update=C
+
+get../api/:lid/ordersummary=select Status, count(*) as TC from transaction where MUsers_ID = @:lid@ group by status ;
+Roles.get../api/:lid/ordersummary=M
+
+post../api/:lid/merchant/orders=select transaction.ID, MUsers_ID, u.NAME, u.ADDRESS, BookingRef, Extract(Year from PickupOn) || '-' || Extract(Month from PickupOn) || '-' || extract(Day from PickupOn) As PickupOn, current_timestamp, PickupStart, PickupEnd, Customer_NAME, AmountPaid from Transaction, Users u where MUsers_ID = u.ID and MUsers_ID = @:lid@ and STATUS = '@STATUS@' order by PickupOn desc, PickupStart asc 
+Roles.post../api/:lid/merchant/orders=M
+
+post../api/:lid/merchant/orders_=select t.Transaction_ID, t.Quantity, t.Usual_Price, p.IMAGE_URL, t.DiscountedPrice, p.Title, CUSTOMER_Name from Transaction, TransactionDetails t, Product p, Users where t.Product_ID = p.ID and t.Transaction_ID = transaction.ID and transaction.CUsers_ID = Users.ID and t.Transaction_ID = @ID@
+
+
+post../api/:lid/merchant/confirm/:tid=update Transaction set Status = 'C', Comment = '@COMMENT@' where ID = @:tid@ and MUsers_ID = @:lid@
+Roles.post../api/:lid/merchant/confirm/:tid=M
+
+post../api/:lid/merchant/fulfilled/:tid=update Transaction set Status = 'D' where ID = @:tid@ and MUsers_ID = @:lid@
+Roles.post../api/:lid/merchant/fulfilled/:tid=M

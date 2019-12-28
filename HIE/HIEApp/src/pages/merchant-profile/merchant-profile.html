@@ -1,0 +1,149 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="hie-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <!-- <ion-grid no-padding>
+    <ion-item no-lines no-padding>
+      <select-region></select-region>
+    </ion-item>
+    <div class="ksd-field-spacer"></div>
+    <ion-item class="ksd-select" no-lines no-padding>
+      <select-cuisine [current]="getCuisines()"></select-cuisine>
+    </ion-item>
+  </ion-grid> -->
+
+  <div *ngIf="bLoaded">
+    <div class="ksd-spacer"></div>
+    <!-- <ion-item style="display:none" class="ksd-select" no-lines no-padding>
+      <list-cuisines [current]="getCuisines()"></list-cuisines>
+    </ion-item> -->
+
+    <form [formGroup]="oInputForm" (ngSubmit)="onSave(oInputForm.value)">
+      <ion-row>
+        <ion-col>
+          <ion-item no-padding>
+            <ion-label floating>Name</ion-label>
+            <ion-input formControlName="NAME" minlength="3" maxlenth="25" type="text"></ion-input>
+          </ion-item>
+          <div class="ksd-field-spacer"></div>
+          <ion-item no-padding>
+            <ion-label floating>Location</ion-label>
+            <ion-select read-only formControlName="LOCATION">
+              <ion-option value="North" checked="true">North</ion-option>
+              <ion-option value="East">East</ion-option>
+              <ion-option value="West">West</ion-option>
+              <ion-option value="South">South</ion-option>
+            </ion-select>
+
+            <!--<ion-input text-justify formControlName="LOCATION" type="text"></ion-input>
+            <p text-right>Change</p>-->
+          </ion-item>
+          <!-- <div class="ksd-field-spacer"></div> -->
+
+          <!-- <ion-item>
+            <ion-label floating>Food type</ion-label>
+            <ion-input formControlName="FOOD_TYPE" type="text"></ion-input>
+          </ion-item> -->
+
+          <!-- <ion-item class="ksd-select" no-lines> -->
+            <!-- <ion-label floating>Food type</ion-label> -->
+            <!--<ion-item class="ksd-select" no-lines no-padding> -->
+                <div class="ksd-field-spacer"></div>
+                <list-cuisines [readonly]=true [current]="getCuisines()"></list-cuisines>
+            <!-- </ion-item> -->
+
+            <!-- <select-cuisine [current]="this.oItem.FOOD_TYPE"></select-cuisine> -->
+            <!-- <p class="ksd-change">{{oItem.FOOD_TYPE}}</p> -->
+            <!-- <ion-input formControlName="FOOD_TYPE" read-only type="text"></ion-input> -->
+            <!-- <p class="ksd-change" item-right (click)="onChangePassword()">Change</p> -->
+            <!-- <select-cuisine></select-cuisine> -->
+            <!-- <select-cuisine (select)="onCuisineChange($event)"></select-cuisine>
+          </ion-item>
+          <ion-item class="ksd-select" no-lines no-padding>
+            <select-cuisine></select-cuisine>
+            <!-- <select-cuisine (select)="onCuisineChange($event)"></select-cuisine> -->
+          <!-- </ion-item> -->
+
+          <div class="ksd-field-spacer"></div>
+
+          <ion-item no-padding>
+            <ion-label floating>Email</ion-label>
+            <ion-input formControlName="EMAIL" trim type="text"></ion-input>
+          </ion-item>
+          <div class="ksd-field-spacer"></div>
+          
+          <!-- read-only disabled  -->
+          <ion-item no-padding>
+            <ion-label floating>Password</ion-label>
+            <ion-input read-only disabled formControlName="PASSWORD" type="password"></ion-input>
+            <p class="ksd-change" item-right (click)="onChangePassword()">Change</p>
+          </ion-item>
+          <!-- <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input formControlName="PASSWORD" type="password"></ion-input>
+            <p item-right (click)="onChangePassword()">Change</p>
+          </ion-item> -->
+          <div class="ksd-field-spacer"></div>
+
+          <ion-item no-padding>
+            <ion-label floating>Mobile</ion-label>
+            +65
+            <ion-input formControlName="MOBILE" type="text"></ion-input>
+          </ion-item>
+          <div class="ksd-field-spacer"></div>
+
+          <!-- minlength="8" maxlength="8" -->
+          <ion-item no-padding>
+            <ion-label floating>Outlet phone no. +65</ion-label>
+            <ion-input formControlName="OUTLET_PHONE" type="text"></ion-input>
+          </ion-item>
+          <div class="ksd-field-spacer"></div>
+
+          <ion-item no-padding>
+            <ion-label floating>Address</ion-label>
+            <ion-textarea class="ksd-address" text-justify formControlName="ADDRESS" type="textarea"></ion-textarea>
+          </ion-item>
+          <div class="ksd-field-spacer"></div>
+
+        </ion-col>
+
+      </ion-row>
+      <div class="ksd-err">
+        <div *ngIf="oForm.hasError('NAME')" class="alert alert-danger">
+          {{oForm.getError('NAME')}}
+        </div>
+        <div *ngIf="oForm.hasError('EMAIL')" class="alert alert-danger">
+          {{oForm.getError('EMAIL')}}
+        </div>
+        <div *ngIf="oForm.hasError('MOBILE')" class="alert alert-danger">
+          {{oForm.getError('MOBILE')}}
+        </div>
+        <div *ngIf="oForm.hasError('OUTLET_PHONE')" class="alert alert-danger">
+          {{oForm.getError('OUTLET_PHONE')}}
+        </div>
+        <!-- <div *ngIf="oForm.hasError('ADDRESS')" class="alert alert-danger">
+          {{oForm.getError('ADDRESS')}}
+        </div> -->
+      </div>
+      <div class="ksd-field-spacer"></div>
+      <button ion-button full type="submit" [disabled]="!oInputForm.valid">
+        <p>Save</p>
+      </button>
+
+    </form>
+  </div>
+  <!--<p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>-->
+
+</ion-content>
+<!-- <ion-footer>
+</ion-footer> -->

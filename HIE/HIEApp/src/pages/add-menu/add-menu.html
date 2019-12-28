@@ -1,0 +1,142 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{oTitle}}</ion-title>
+  </ion-navbar>
+  <!-- Upload todo -->
+  <!--//https://www.joshmorony.com/advanced-forms-validation-in-ionic-2/-->
+</ion-header>
+<ion-content>
+  <div *ngIf="bLoaded">
+    <div class="ksd-spacer-top"></div>
+    <ion-row padding>
+      <ion-col>
+        <div class="image-container">
+          <img [src]="getImageURL(oItem)" />
+          <div class="after">
+            <button icon-left ion-button full class="ksd-upload-button" full (click)="checkPermissions()">
+              <ion-icon class="ksd-icon" name="md-camera">
+                <span class="ksd-upload-text">Upload</span>
+              </ion-icon>
+            </button>
+            <div *ngIf="bNoImage">please upload image</div>
+          </div>
+          <!-- <div class="after">
+            <button class="ksd-upload-button" ion-button full (click)="checkPermissions()"><ion-icon name="md-camera"></ion-icon> Upload</button>
+          </div> -->
+        </div>
+      </ion-col>
+    </ion-row>
+    <!--https://blog.khophi.co/new-changes-ionic-2-forms-examples/-->
+    <form [formGroup]="oInputForm" (ngSubmit)="onSave(oInputForm.value)">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Menu title</ion-label>
+            <ion-input formControlName="TITLE" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Description</ion-label>
+            <ion-input text-justify formControlName="DESCRIPTION" type="textarea"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Original price</ion-label>
+            <ion-input formControlName="USUAL_PRICE" type="number"></ion-input>
+          </ion-item>
+
+        </ion-col>
+      </ion-row>
+      <div class="ksd-spacer-1"></div>
+      <!-- <ion-row no-padding>
+        <ion-col width-80 class="no-padding">
+          <ion-label class="label-heading">Discount rate</ion-label>
+        </ion-col>
+        <ion-col class="no-padding">
+          <ion-label class="label-heading">Days</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+      </ion-row> -->
+      <!-- <ion-item>
+      </ion-item> -->
+      <ion-row>
+        <ion-col>
+          <div formArrayName="discounts" *ngFor="let control of oInputForm.controls['discounts'].controls; let i = index">
+            <ion-row [formGroup]="oInputForm.controls.discounts.controls[i]">
+              <ion-col width-50 text-left>
+                <ion-item class="ksd-select">
+                  <ion-label>Rate</ion-label>
+                  <ion-select text-left formControlName="RATE" [class]="getBgColor(oInputForm.controls['discounts'].controls[i], 'RATE')">
+                    <ion-option value="0" checked="true">Discount Rate</ion-option>
+                    <ion-option value="20">20%</ion-option>
+                    <ion-option value="15">15%</ion-option>
+                    <ion-option value="10">10%</ion-option>
+                  </ion-select>
+                </ion-item>
+                <!-- <div>
+                  {{oInputForm.controls['discounts'].controls[i].get('RATE').valid}}.
+                </div> -->
+<!-- 
+                <div>
+                  {{oInputForm.controls['discounts'].controls[0].get('RATE').errors}}
+                </div>
+                <div *ngIf="oInputForm.controls.discounts.controls[i].get('RATE').errors">
+                  required
+                </div> -->
+              </ion-col>
+              <ion-col width-50 text-left>
+                <ion-item class="ksd-select">
+                  <ion-label>Days</ion-label>
+                  <ion-select text-left formControlName="ADVANCEDAYS"  [class]="getBgColor(oInputForm.controls['discounts'].controls[i], 'ADVANCEDAYS')">
+                    <ion-option value="0" checked="true">Days</ion-option>
+                    <ion-option value="5">5</ion-option>
+                    <ion-option value="2">2</ion-option>
+                    <ion-option value="1">1</ion-option>
+                  </ion-select>
+                </ion-item>
+                <!-- <div>
+                  {{oInputForm.controls['discounts'].controls[i].get('ADVANCEDAYS').valid}}.
+                </div> -->
+                <div *ngIf="oInputForm.controls.discounts.controls[i].get('ADVANCEDAYS').errors">
+                  required
+                </div>
+              </ion-col>
+            </ion-row>
+            <!--<discount [myForm]="oInputForm.controls.discounts.controls[i]"></discount>-->
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="bShowError">
+        <ion-col col-2></ion-col>
+        <ion-col col-10>
+          <p class="alert">{{bErrorText}}</p>
+        </ion-col>
+      </ion-row>
+      <div class="ksd-spacer-1"></div>
+      <!-- <ion-item no-padding>
+      </ion-item> -->
+      <ion-row>
+        <ion-col col-10>
+          <ion-label class="ksd-active-label">Show to customer</ion-label>
+        </ion-col>
+        <ion-col col-2>
+          <div class="ksd-toggle-background">
+            <ion-toggle read-only item-right [checked]="oItem.ISACTIVE == 'Y'" formControlName="ISACTIVE" id="ISACTIVE"></ion-toggle>
+          </div>
+          <!--(ionChange)="notify($event)"></ion-toggle>-->
+        </ion-col>
+      </ion-row>
+      <ion-item>
+      </ion-item>
+      <div class="ksd-spacer-1"></div>
+    </form>
+    <!--<p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>-->
+  </div>
+
+</ion-content>
+<ion-footer>
+  <button primary ion-button full type="submit" [disabled]="!oInputForm.valid" (click)="onSave(oInputForm.value)">
+    <p class="ksd-anchor-button">Save</p>
+  </button>
+</ion-footer>

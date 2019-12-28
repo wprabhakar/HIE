@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1995 399 44 44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #111317;
+        opacity: 0;
+      }
+
+      .cls-2 {
+        opacity: 0.602;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="group" transform="translate(1664 399)">
+    <rect id="rectangle" class="cls-1" width="44" height="44" transform="translate(331)"/>
+    <g id="group-2" data-name="group" class="cls-2" transform="translate(346 15)">
+      <g id="group-3" data-name="group" transform="translate(0 0)">
+        <path id="path" class="cls-3" d="M12.7,13.775a1.125,1.125,0,0,1-.765-.306L.306,1.837a1.11,1.11,0,0,1,0-1.531,1.11,1.11,0,0,1,1.531,0L13.469,11.938a1.11,1.11,0,0,1,0,1.531A1.038,1.038,0,0,1,12.7,13.775Z" transform="translate(0 0)"/>
+      </g>
+      <g id="group-4" data-name="group" transform="translate(0 0)">
+        <path id="path-2" data-name="path" class="cls-3" d="M1.071,13.775a1.125,1.125,0,0,1-.765-.306,1.11,1.11,0,0,1,0-1.531L11.938.306a1.11,1.11,0,0,1,1.531,0,1.11,1.11,0,0,1,0,1.531L1.837,13.469A1.038,1.038,0,0,1,1.071,13.775Z" transform="translate(0 0)"/>
+      </g>
+    </g>
+  </g>
+</svg>

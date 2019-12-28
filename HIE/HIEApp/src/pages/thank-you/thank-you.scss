@@ -1,0 +1,60 @@
+page-thank-you {
+
+  .ksd-spacer {
+    padding-top: 164px ;
+  }
+
+  .ksd-spacer-1 {
+    padding-top: 84px ;
+  }
+
+  div {
+    background-color: black ;
+    color: white ;
+  }
+
+  .center-image {
+//    padding-top: 178px ;
+//    padding-bottom: 50px ;
+    height: 100px ;
+    width: 100px ;
+    text-align: center ;
+    margin-bottom: 30px ;
+  }
+  //
+  .ksd-text {
+    font-family: "latoregular" ;
+    font-size: 17px ;
+    padding: 3px ;
+    // padding-top: 32px ;
+    // padding-bottom: 80px ;
+    text-align: center ;
+//    color: black ;// #FA0505 ;
+//    padding-right: 20px ;
+  }
+
+  //OK Button Color & Size
+  // span {
+  //   color: black ;
+  //   font-size: 20px ;
+  //   text-transform: none; 
+  // }
+
+  .info {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      
+      background: url(../assets/img/ico_tick_green.svg) no-repeat ; 
+//      background-position-x: center ;
+      width: 100%;
+      height: 100%;
+      align-items: center ;
+  //   margin: 20px auto 0 auto;
+  }
+
+  .green-tick {
+    background: url(../assets/img/ico_completed_tick_green.svg) no-repeat ; 
+    background-position-x: center ;        
+  }
+}

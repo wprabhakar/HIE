@@ -1,0 +1,16 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="hie-menu"></ion-icon>
+    </button>
+    <ion-title>About us</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="bLoaded">
+    <div [innerHTML]="'<p>' + sAboutUsHTML + '</p>'"></div>
+  </div>
+</ion-content>

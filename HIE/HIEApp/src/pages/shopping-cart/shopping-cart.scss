@@ -1,0 +1,253 @@
+page-shopping-cart {
+    ion-buttons {
+        order: 1;
+    }
+
+    .ksd-timepicker {
+        color: black;
+    }
+
+    .datetime-text {
+        color: black;
+    }
+
+    .ksd-date-time {
+        padding-left: 5px;
+    }
+
+    .ksd-total-text {
+        padding: 0px;
+
+        //    padding-top: 20px ;
+        padding-left: 10px;
+        font-size: 15px;
+        font-family: "latoregular";
+        color: black;
+        margin: 0px;
+    }
+
+    .ksd-total {
+        padding-right: 10px ;
+        font-size: 17px;
+        font-family: "latoregular";
+        padding-bottom: 0px;
+        color: black;
+        margin: 0px;
+    }
+
+    .ksd-saved {
+        padding-right: 10px ;
+        font-size: 12px;
+        font-family: "latoregular";
+        padding-top: 0px;
+        color: black;
+        margin: 0px;
+    }
+
+    //   ion-segment{
+    // //    max-width: 200px;
+    //     border-style: solid;
+    //     border-radius: 20px 20px 20px 20px;
+    //     color: black;
+    //     border-color: darkgray;
+    //     border-width: thin;
+    //     padding: 0px ;
+    //     width: 60% ;
+    //     max-height: 2.2rem ;
+    //     min-height: 2.2rem ;
+    //   }
+
+    .ksd-padding {
+        padding: 0px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        background-color: inherit;
+        color: black;
+        font-family: "latoregular";
+    }
+
+    .ksd-collection {
+        background-color: white;
+        color: black;
+        border: none;
+        background-image: none;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .item-divider-md {
+        max-height: 4px;
+        min-height: 4px;
+    }
+
+    .ksd-timepicker {
+        background-image: none;
+        background-color: white;
+        padding-left: 10px;
+    }
+
+    .ksd-usual-price {
+        text-decoration: line-through;
+        color: grey;
+        font-size: 12px;
+    }
+
+    .ksd-payment-information {
+        font-size: 8px;
+        padding: 0px;
+        padding-left: 10px;
+        vertical-align: text-bottom;
+    }
+    .ksd-payment-error {
+        color: red ;
+        font-size: 8px;
+        padding: 0px;
+        padding-left: 10px;
+        align-content: right ;
+        vertical-align: text-bottom;
+    }
+
+    // input {
+    //     outline: 0;
+    //     border-width: 0 2 2px 2;
+    //     border-color: blue;
+    // }
+
+    div.input-cover.activated {
+        border-color: green;
+    }
+
+    ion-label {
+        padding-left: 5px;
+        font-size: 12px;
+        color: #606060;
+    }
+
+    .ion-segment {
+        border-style: solid;
+        border-radius: 15px 15px 15px 15px;
+        color: black;
+        border-color: lightgray;
+        border-width: thin;
+        padding: 2px;
+
+        // position: absolute;
+        // bottom: 60px;
+        width: 60%;
+        left: 20%;
+    }
+
+    .ksd-minus {
+        font-family: "latobold";
+        color: black;
+        font-size: 10px;
+        padding-left: 20px;
+        padding-top: 6px;
+    }
+
+    .ksd-plus-minus {
+        font-family: "latobold";
+        color: black;
+        font-size: 10px;
+        padding-left: 10px;
+        padding-top: 6px;
+    }
+
+    .ksd-qty {
+        font-family: "latoregular";
+        color: black;
+        font-size: 12px;
+        padding-left: 10px;
+    }
+
+    .ksd-row {
+        background-color: #F0F1F3;
+        padding: 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .ksd-merchant {
+        font-family: "latoregular";
+        color: black;
+        font-size: 16px;
+    }
+
+    .ksd-address {
+        font-family: "latoregular";
+
+        //    color: black ;
+        font-size: 12px;
+    }
+
+    .ksd-row-1 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .ksd-row-total {
+        padding-top: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+
+    .ksd-price {
+        color: black;
+        font-size: 17px;
+        padding: 0px;
+        padding-top: 10px;
+    }
+
+    input {
+        border: none ;
+        border-bottom: 2px ;
+        border-bottom-color: black ;
+        font: inherit;
+        font-size: 16px;
+//        font-size: 2rem;        
+        color: inherit;
+        align-content: left ;
+        padding-left: 5px ;
+    }
+    .ksd-card-number {
+        //        padding: 0px ;
+        //        margin: 0px ;
+//        padding-left: 50px ;
+//        align-content: center ;
+        // border-color: white ;
+        // border: none ;
+//        left: 0;
+//        right: 0;
+//        top: 0;
+//        bottom: 0;
+//        display: block;
+//        border: 0px ;
+  //      margin: 0;
+        // position: absolute;
+        // z-index: 1;
+        // display: block;
+        // overflow-x: hidden;
+        // overflow-y: scroll;
+        // -webkit-overflow-scrolling: touch;
+        // will-change: scroll-position;
+        // contain: size style layout;
+        // color: #000;
+//        background-color: #fff;
+        // border-right-width: 2px;
+        // border-right-color: red;
+        // border: 0px ;
+        // margin: 0;
+//        box-sizing: border-box;
+
+
+    }
+
+    .ksd-card {
+        //        padding: 0px ;
+        //        margin: 0px ;
+        font-size: 20px;
+        border-right-width: 2px;
+        border-right-color: red;
+    }
+}

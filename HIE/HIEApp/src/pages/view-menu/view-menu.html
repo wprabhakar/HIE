@@ -1,0 +1,99 @@
+<!--<ion-header>
+
+ <ion-navbar *navbar>
+    <ion-buttons left (click)="onCloseClick()">
+      <button ion-button icon-only>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      <lazy-image class="expanded-64-image" src="{{getImageURL(oItem)}}"> </lazy-image>
+    </ion-title>
+  </ion-navbar>
+</ion-header>-->
+<ion-content ksd-header *ngIf="bLoaded">
+  <div class="background-image" [style.backgroundImage]="'url(' + getImageURL(oItem) + ')'">
+    <button ion-button icon-only class="top-left-button-2" (click)="goBack()">
+      <ion-icon name="close"></ion-icon>
+      <!-- <ion-icon name="hie-close-cross-black-circle"></ion-icon> -->
+      </button>
+  </div>
+  <div class="main-content">
+    <!--<ion-grid *ngIf="bLoaded">
+      <ion-row>
+        <ion-col>
+          <lazy-image class="expanded-64-image" src="{{getImageURL(oItem)}}"> </lazy-image>
+        </ion-col>
+      </ion-row>
+    </ion-grid>-->
+    <div class="ksd-spacer-top"></div>
+    <ion-row>
+      <ion-col col-8 class="ksd-border">
+        {{oItem.TITLE}}
+      </ion-col>
+      <ion-col col-4>
+        <div class="ksd-price"> Original price</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-8 class="ksd-border">
+        <div class="ksd-food-type"> todo show food type</div>
+      </ion-col>
+      <ion-col col-3 class="ksd-price-value">{{oItem.USUAL_PRICE}}
+      </ion-col>
+    </ion-row>
+    <div class="ksd-spacer-top"></div>
+    <ion-row no-padding>
+      <ion-col no-padding text-wrap col-12 class="ksd-description">
+        {{oItem.DESCRIPTION}}
+      </ion-col>
+    </ion-row>
+    <div class="ksd-spacer-1"></div>
+    <!--</div>
+  <div>-->
+    <ion-item no-padding>
+    </ion-item>
+    <div *ngFor="let oD of oDiscounts; let i = index">
+      <ion-row no-padding>
+        <ion-col col-6 class="ksd-right-border">
+          <div no-padding class="ksd-discount-rate">
+            Discount rate
+          </div>
+          <div class="ksd-select ksd-bold">{{oD.RATE}}%
+          </div>
+        </ion-col>
+        <ion-col col-6 style="padding-left:10px">
+          <div no-padding class="ksd-discount-rate">
+            Days
+          </div>
+          <div class="ksd-select ksd-bold">{{oD.ADVANCEDAYS}}
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-item no-padding>
+      </ion-item>
+    </div>
+    <div class="ksd-spacer-2"></div>
+    <ion-item no-padding>
+    </ion-item>
+    <ion-row>
+      <ion-col col-9>
+        <ion-label class="ksd-active-label"> Active</ion-label>
+      </ion-col>
+      <ion-col col-3 align-right>
+        <!--http://plnkr.co/edit/AFgp5TsBq7rOH0cM6y4t?p=preview-->
+        <!-- <div class="ksd-toggle-background">
+          <ion-toggle item-right disabled [checked]="oItem.ISACTIVE == 'Y'"></ion-toggle>
+        </div> -->
+        <ion-label *ngIf="oItem.ISACTIVE == 'Y'" class="ksd-active-label"> Yes</ion-label>
+        <ion-label *ngIf="oItem.ISACTIVE == 'N'" class="ksd-active-label"> No</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-item no-padding>
+    </ion-item>
+    <div class="ksd-spacer-3"></div>
+  </div>
+</ion-content>
+<ion-footer>
+  <button primary ion-button full (click)="onEdit()"><p class="ksd-anchor-button">Edit menu</p></button>
+</ion-footer>

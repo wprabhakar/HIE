@@ -1,0 +1,175 @@
+page-discount-details {
+  .ksd-spacer {
+    padding-top: 10px ;
+  }
+  .ksd-header {
+    color: grey ;
+    margin: 5px ;
+    padding: 15px ;
+  }
+  .ksd-name {
+    font-family: 'latoregular' ;
+    font-size: 22px ;
+    color: black ;
+    margin: 0px ;
+    padding: 0px ;
+  }
+  .ksd-description {
+    font-family: 'latoregular' ;
+    color: black ;
+    font-size: 14px ;
+    margin: 0px ;
+    padding: 0px ;
+    padding-bottom: 10px ;
+  }
+  .ksd-discount{
+    font-size: 22px ;
+    color: #FF8A41 ;
+    margin: 0px ;
+    padding: 0px ;
+    padding-top: 15px ;
+  }
+  .ksd-days {
+    font-size: 14px ;
+    color: black ;
+    margin: 0px ;
+    padding: 0px ;
+    padding-bottom: 15px ;
+  }
+
+  .ksd-usual-price {
+    text-decoration:line-through ;
+    color: grey ;
+    font-size: 14px ;
+    padding-top: 18px ;
+  }
+
+  .ksd-price {
+    color: black ;
+    font-size: 22px ;
+    padding-bottom: 15px ;
+  }
+
+.ksd-qty {
+   font-family: 'latoregular' ;
+    color: black ;
+    font-size: 17px ;
+    padding-left: 10px ;
+}
+  
+.ksd-minus {
+   font-family: 'latobold' ;
+    color: black ;
+    font-size: 17px ;
+   padding-left: 20px ;
+   padding-top: 5px ;
+}
+.ksd-plus-minus {
+   font-family: 'latobold' ;
+    color: black ;
+    font-size: 17px ;
+   padding-left: 10px ;
+    padding-top: 5px ;
+}
+
+  .background-image {
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+//    height: 50%;
+    background-blend-mode: multiply;
+    height: 128px ;
+    width: 100% ;
+}
+
+.ksd-right-padding {
+  margin-right: 15px ;
+}
+
+.ksd-addremove-padding {
+  padding-top: 5px ;
+}
+
+.ksd-image {
+  width: 100% ;
+}
+.ksd-padding {
+  margin-left: 33% ;
+  width: 34% ;
+  padding: 0px ;
+  background-color: white;
+  color: black ;
+position: absolute;
+bottom: 56px;
+}
+
+.ksd-badge {
+width: 100px ;
+font-size: 20px ;
+background-color: white ;
+color: black ;
+}
+
+  .ion-segment{
+    border-style: solid;
+    border-radius: 15px 15px 15px 15px;
+    color: black;
+    border-color: lightgray;
+    border-width: thin;
+    padding: 2px ;
+    position: absolute;
+    bottom: 60px;
+    width: 30% ;
+    left: 35% ;
+  }
+
+#notification-button {            
+            position: relative;
+            width: 42px;
+            top:1px;
+            right: 1px;
+            overflow: visible!important;
+        }
+
+
+   #notifications-badge {
+            background-color: red;
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            border-radius: 100%;
+        }
+//Working
+// $label-md-text-color: blue ;
+// .item-multi-picker .label-md {
+//   color: $label-md-text-color;
+//   background-color: lightgrey ;
+// }
+//Working
+.multi-picker-text {
+    //The text shown after selection
+//    background-color: red ;
+    color: black ;
+}
+
+// ion-multi-picker {
+//   text-align: center ;
+// }
+
+  ion-segment{
+//    max-width: 200px;
+    border-style: solid;
+    border-radius: 20px 20px 20px 20px;
+    color: grey;
+    border-color: darkgray;
+    border-width: thin;
+    padding: 0px ;
+    width: 60% ;
+    max-height: 2.2rem ;
+    min-height: 2.2rem ;
+  }
+
+
+
+}
+

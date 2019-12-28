@@ -1,0 +1,75 @@
+<ion-header>
+
+  <ion-navbar>
+    <!--<button ion-button menuToggle>
+      <ion-icon name="hie-back"></ion-icon>
+    </button>-->
+    <ion-title>Order history</ion-title>
+    <button ion-button menuToggle (click)="goBack()">
+      <ion-icon name="back"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div *ngIf="bLoaded">
+    <ion-item class="ksd-search-padding">
+      <div no-padding>
+        <ion-searchbar clear placeholder="Search" [(ngModel)]="sText" (ionInput)="onSearchInput()"></ion-searchbar>
+      </div>
+    </ion-item>
+
+    <div *ngIf="oItemGroupedByDate.length == 0">
+      <p class="ksd-no-result">{{sErrorText}}</p>
+    </div>
+    <!--<ion-list>-->
+    <div no-padding *ngFor="let g of oItemGroupedByDate">
+      <div class="ksd-date">{{g.PICKUPON | date: 'dd MMM yyyy'}}</div>
+      <ion-card padding [class]="getStyle(g.PICKUPON)" *ngFor="let o of g.data;" ion-item>
+        <ion-row class="ksd-padding">
+          <ion-col col-3>
+            <div class="ksd-time">{{o.PICKUPTIME}}
+            </div>
+          </ion-col>
+          <ion-col col-3>
+            <div class="ksd-name">{{o.CUSTOMER_NAME}}</div>
+          </ion-col>
+          <ion-col col-6 item-right>
+            <div class="ksd-order-number">Order No. {{o.BOOKINGREF}}</div>
+          </ion-col>
+        </ion-row>
+        <ion-item no-padding [class]="getStyle(g.PICKUPON)" ion-item *ngFor="let oD of o._D;">
+          <ion-item no-padding [class]="getStyle(g.PICKUPON)">
+            <div class="ksd-details">{{oD.QUANTITY}} x {{oD.TITLE}}</div>
+          </ion-item>
+        </ion-item>
+        <ion-item no-lines [class]="getStyle(g.PICKUPON)">
+        </ion-item>
+      </ion-card>
+      <div style="padding-bottom: 20px;" [class]="getStyle(g.PICKUPON)"></div>
+    </div>
+    <!--</ion-list>-->
+  </div>
+  <!--<div *ngIf="bLoaded">
+    <ion-list>
+      <ion-item *ngFor="let o of oItems; let i = index">
+        <p>{{o.PICKUPON}}<br>
+          <p>
+            <p>{{o.PICKUPSTART}} - {{o.PICKUPEND}} {{o.CUSTOMER_NAME}} {{o.BOOKINGREF}}</p>
+            <ion-item>
+              <ion-row *ngFor="let oD of o.DETAILS; let i = index;">
+                <ion-col style="padding: 0px;">
+                  <ion-row>
+                    <ion-col>
+                      <span text-left class="ksd-merchant">{{oD.QUANTITY}} x {{oD.TITLE}}
+                      </span>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+      </ion-item>
+    </ion-list>
+  </div>-->
+</ion-content>

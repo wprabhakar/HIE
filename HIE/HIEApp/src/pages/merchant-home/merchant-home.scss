@@ -1,0 +1,118 @@
+page-merchant-home {
+  ion-content {
+    margin-top: 15px ;
+    margin-left: 8px ;
+    margin-right: 8px ;
+  }
+  
+  ion-row {
+    padding: 0px ;
+    margin: 0px ;
+//    padding-top: 5px ;
+    padding-bottom: 12px ;
+  }
+
+  .ksd-image-width {
+    max-width: 80px ;
+  }
+
+  .ksd-search-padding {
+    padding-top: 0px ;
+    padding-bottom: 0px ;
+  }
+  .ksd-col-head {
+    max-width: 130px ;
+  }
+  // .ksd-col {
+  //   max-width: 80px ;
+  // }
+
+  .ksd-merchant-name {
+//    font-family: "latoregular" ;
+    font-size: 24px ;
+    color: black ;
+  }
+
+  .ksd-merchant-info-label {
+//    font-family: "latolight" ;
+    color: #7C7E81 ;
+    font-size: 14px ;
+  }
+  .ksd-merchant-info {
+ //   font-family: "latolight" ;
+    color: black ;
+    font-size: 14px ;
+  }
+
+.ksd-heading {
+  padding: 0px ;
+  margin: 0px ;
+  color: #3D414A ;
+  font-size: 16px ;
+}
+
+.ksd-description {
+  padding: 0px ;
+  margin: 0px ;
+  color: #7C7E81 ;
+  font-size: 12px ;
+}
+/*
+ion-content ion-searchbar input.searchbar-input {
+    background-color: red;
+    border-color: red;
+    color: white;
+    box-shadow: none;
+}
+*/
+.ksd-searchbar {
+  margin: 0px ;
+  padding: 0px ;
+  //padding-right: 10px ;
+   background-color: white;
+  //  border-color: red;
+    color: white;
+    box-shadow: none;
+     border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+    border-right: none !important ;
+    border-right-color: transparent !important;
+    
+}
+
+.container {
+    // width: 80%;
+    // height: 200px;
+    // background: aqua;
+    margin: auto;
+ //   padding: 10px;
+}
+.one {
+//    width: 15%;
+ //   height: 200px;
+//    background: red;
+    float: left;
+}
+.two {
+    margin-left: 20%;
+ //   height: 200px;
+ //   background: black;
+}
+
+  .ksd-title {
+     font-family: 'Lato' ;
+     font-size: 16px ;
+     color: #3D414A ;
+    // color: black ;
+//    min-width: 120px ;
+//    max-width: 120px ;
+    padding-left: 0px ;
+//    padding-top: 0px ;
+ //   margin-top: 0px ;
+ //   background-color: inherit ;
+//    min-height: 40px ;
+  }
+
+}
